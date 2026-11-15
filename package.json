@@ -12,15 +12,30 @@
 		"build": "wp-scripts build",
 		"typecheck": "tsc --noEmit",
 		"lint:js": "wp-scripts lint-js",
-		"format": "wp-scripts format"
+		"format": "wp-scripts format",
+		"plugin-zip": "wp-scripts plugin-zip"
 	},
+	"files": [
+		"admin/**",
+		"build/**",
+		"includes/**",
+		"languages/**",
+		"src/**",
+		"index.php",
+		"license.txt",
+		"printah.php",
+		"readme.txt",
+		"tsconfig.json",
+		"uninstall.php"
+	],
 	"prettier": "@wordpress/prettier-config",
 	"keywords": [],
-	"author": "",
+	"author": "Ichlas",
 	"license": "GPL-2.0+",
 	"type": "commonjs",
 	"dependencies": {
 		"@wordpress/element": "^10.1.0",
+		"@wordpress/i18n": "^7.1.0",
 		"animejs": "^4.5.0",
 		"lucide-react": "^1.52.0"
 	},

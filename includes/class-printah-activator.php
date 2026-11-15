@@ -7,7 +7,7 @@
  * @since      1.0.0
  * @package    Printah
  * @subpackage Printah/includes
- * @author     Davies Holmes
+ * @author     Ichlas
  */
 
 namespace Printah;
@@ -24,7 +24,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since      1.0.0
  * @package    Printah
  * @subpackage Printah/includes
- * @author     Davies Holmes
+ * @author     Ichlas
  */
 final class Printah_Activator {
 	/**

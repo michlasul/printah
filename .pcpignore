@@ -1,0 +1,23 @@
+# Local development & dependency directories (not shipped in release ZIP)
+wp-content/
+vendor/
+node_modules/
+docs/
+.git/
+.zed/
+
+# Development tooling, docs, and local config files
+.gitignore
+.pcpignore
+.wp-env.json
+AGENTS.md
+CLAUDE.md
+GEMINI.md
+README.md
+composer.json
+composer.lock
+package-lock.json
+phpcs.xml
+*.zip
+*.log
+.DS_Store

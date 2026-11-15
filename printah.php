@@ -7,17 +7,17 @@
  * registers the activation and deactivation functions, and defines a function
  * that starts the plugin.
  *
- * @link              http://printah.com
  * @since             1.0.0
  * @package           Printah
  *
  * @wordpress-plugin
  * Plugin Name:       Printah
- * Plugin URI:        http://printah.com/docs
  * Description:       A fast command palette and floating toolbar for WordPress. Navigate WP Admin, search posts, pages, and custom post types, and jump into Elementor or WooCommerce from your keyboard.
  * Version:           1.0.0
- * Author:            Davies Holmes
- * Author URI:        https://portome.vercel.app
+ * Requires at least: 6.5
+ * Requires PHP:      7.4
+ * Author:            Ichlas
+ * Author URI:        https://portome-eta.vercel.app/
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       printah

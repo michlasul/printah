@@ -2,7 +2,6 @@
 /**
  * Register all actions and filters for the plugin
  *
- * @link       http://example.com
  * @since      1.0.0
  *
  * @package    Printah
@@ -24,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @package    Printah
  * @subpackage Printah/includes
- * @author     Davies Holmes
+ * @author     Ichlas
  */
 class Printah_Loader {
 
