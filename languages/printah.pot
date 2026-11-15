@@ -1,0 +1,817 @@
+# Copyright (C) 2026 Printah
+# This file is distributed under the same license as the Printah plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: Printah 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/printah/\n"
+"POT-Creation-Date: 2026-11-15 23:25+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Domain: printah\n"
+
+
+#. translators: 1: Comments label, 2: pending count.
+#: src/components/FloatingToolbar.tsx:385
+#, js-format
+msgid "%1$s (%2$d pending)"
+msgid_plural "%1$s (%2$d pending)"
+msgstr[0] ""
+msgstr[1] ""
+
+#: admin/class-printah-commands.php:182 admin/class-printah-commands.php:305 includes/class-printah-search-controller.php:129
+msgid "(no title)"
+msgstr ""
+
+#: admin/partials/printah-admin-display.php:356
+msgid "3+ chars"
+msgstr ""
+
+#: src/components/FloatingToolbar.tsx:239
+msgid "Account"
+msgstr ""
+
+#: src/components/CommandPalette.tsx:938
+msgid "Actions"
+msgstr ""
+
+#. translators: %s: command label.
+#: src/components/CommandActions.tsx:133
+#, js-format
+msgid "Actions for %s"
+msgstr ""
+
+#. translators: %s: command label.
+#: src/components/CommandActions.tsx:127
+#, js-format
+msgid "Actions · %s"
+msgstr ""
+
+#: admin/class-printah-commands.php:462
+msgid "Add New Page"
+msgstr ""
+
+#: admin/class-printah-commands.php:545
+msgid "Add New Plugin"
+msgstr ""
+
+#: admin/class-printah-commands.php:426
+msgid "Add New Post"
+msgstr ""
+
+#: admin/class-printah-commands.php:753
+msgid "Add New Product"
+msgstr ""
+
+#: admin/partials/printah-admin-display.php:379
+msgid "AI-assisted workflows designed to run straight from the command palette."
+msgstr ""
+
+#. translators: %s: plural post type name.
+#: admin/class-printah-commands.php:226 admin/class-printah-commands.php:356
+#, php-format
+msgid "All %s"
+msgstr ""
+
+#: src/components/CommandPalette.tsx:668 src/components/CommandPalette.tsx:713
+msgid "Back"
+msgstr ""
+
+#: admin/class-printah-commands.php:282 admin/class-printah-commands.php:370
+msgid "Back to Dashboard"
+msgstr ""
+
+#: admin/class-printah-commands.php:772
+msgid "Browse customer profiles and order history"
+msgstr ""
+
+#: admin/class-printah-commands.php:472
+msgid "Browse images, videos, and files"
+msgstr ""
+
+#: admin/class-printah-commands.php:435
+msgid "Categories"
+msgstr ""
+
+#: admin/partials/printah-admin-display.php:393
+msgid "Changes take effect immediately across WP Admin after saving."
+msgstr ""
+
+#: admin/partials/printah-admin-display.php:79
+msgid "Choose non-overlapping shortcuts for Printah and the built-in WordPress palette."
+msgstr ""
+
+#: admin/class-printah-settings.php:94 includes/class-printah-settings-controller.php:112
+msgid "Choose two different shortcuts from the available options."
+msgstr ""
+
+#: src/components/CommandPalette.tsx:746
+msgid "Close"
+msgstr ""
+
+#: admin/class-printah-commands.php:600
+msgid "Comment moderation and avatar preferences"
+msgstr ""
+
+#: admin/class-printah-admin.php:252 admin/class-printah-commands.php:480
+msgid "Comments"
+msgstr ""
+
+#: admin/class-printah-commands.php:676
+msgid "Configure Elementor features and integrations"
+msgstr ""
+
+#: admin/class-printah-commands.php:636
+msgid "Configure Printah shortcuts, floating pill, and modules"
+msgstr ""
+
+#: admin/class-printah-commands.php:790
+msgid "Configure store, payments, and shipping"
+msgstr ""
+
+#: src/components/CommandPalette.tsx:68
+msgid "Content"
+msgstr ""
+
+#: src/components/CommandPalette.tsx:991
+msgid "Content search failed. Try again."
+msgstr ""
+
+#: admin/partials/printah-admin-display.php:173
+msgid "Control the bottom-center quick launcher and the default WordPress admin bar."
+msgstr ""
+
+#: admin/class-printah-commands.php:427
+msgid "Create a new blog post"
+msgstr ""
+
+#: admin/class-printah-commands.php:463
+msgid "Create a new page"
+msgstr ""
+
+#: admin/class-printah-commands.php:754
+msgid "Create a new WooCommerce product"
+msgstr ""
+
+#: src/components/FloatingToolbar.tsx:238
+msgid "Create New"
+msgstr ""
+
+#: src/components/FloatingToolbar.tsx:466
+msgid "Create new"
+msgstr ""
+
+#: admin/partials/printah-admin-display.php:383
+msgid "Custom Elementor widgets and page drafts"
+msgstr ""
+
+#: admin/class-printah-commands.php:513
+msgid "Customize"
+msgstr ""
+
+#: admin/class-printah-commands.php:504
+msgid "Customize full site editing templates"
+msgstr ""
+
+#: admin/class-printah-commands.php:390
+msgid "Dashboard"
+msgstr ""
+
+#: admin/class-printah-commands.php:582
+msgid "Default post format and category"
+msgstr ""
+
+#: admin/partials/printah-admin-display.php:282 admin/partials/printah-admin-display.php:314
+msgid "Detected"
+msgstr ""
+
+#: admin/class-printah-commands.php:599
+msgid "Discussion Settings"
+msgstr ""
+
+#: admin/partials/printah-admin-display.php:183
+msgid "Display the floating pill for View Site, Comments, New, and Profile actions."
+msgstr ""
+
+#: src/components/CommandActions.tsx:36 src/components/CommandActions.tsx:62
+msgid "Edit Content"
+msgstr ""
+
+#: admin/class-printah-commands.php:205
+msgid "Edit in WordPress Editor"
+msgstr ""
+
+#: admin/class-printah-admin.php:231
+msgid "Edit Profile"
+msgstr ""
+
+#: admin/class-printah-commands.php:337 includes/class-printah-search-controller.php:267
+msgid "Edit with Elementor"
+msgstr ""
+
+#: admin/class-printah-commands.php:409
+msgid "Edit your profile and password"
+msgstr ""
+
+#: admin/partials/printah-admin-display.php:58 src/components/CommandPalette.tsx:71
+msgid "Elementor"
+msgstr ""
+
+#: admin/partials/printah-admin-display.php:279
+msgid "Elementor Commands"
+msgstr ""
+
+#: admin/class-printah-commands.php:666
+msgid "Elementor Saved Templates"
+msgstr ""
+
+#: admin/class-printah-commands.php:675
+msgid "Elementor Settings"
+msgstr ""
+
+#: admin/class-printah-commands.php:696
+msgid "Elementor Theme Builder"
+msgstr ""
+
+#: admin/class-printah-commands.php:684
+msgid "Elementor Tools"
+msgstr ""
+
+#: admin/partials/printah-admin-display.php:51
+msgid "Environment status"
+msgstr ""
+
+#: admin/partials/printah-admin-display.php:346
+msgid "Essential keys while navigating inside the palette."
+msgstr ""
+
+#: admin/class-printah-commands.php:206
+msgid "Exit Elementor and open this content in WordPress"
+msgstr ""
+
+#: admin/class-printah-commands.php:229
+msgid "Exit Elementor to the content list"
+msgstr ""
+
+#: admin/class-printah-commands.php:274
+msgid "Exit Site Editor and manage installed themes"
+msgstr ""
+
+#: admin/class-printah-commands.php:265
+msgid "Exit Site Editor and open Pages list"
+msgstr ""
+
+#: admin/class-printah-commands.php:359
+msgid "Exit the editor to the content list"
+msgstr ""
+
+#: admin/class-printah-commands.php:240
+msgid "Exit to WordPress Dashboard"
+msgstr ""
+
+#: admin/partials/printah-admin-display.php:385
+msgid "Fast AI post drafting directly in WordPress"
+msgstr ""
+
+#: admin/partials/printah-admin-display.php:46
+msgid "Fast command palette and floating navigation across WordPress admin and editors."
+msgstr ""
+
+#: admin/partials/printah-admin-display.php:172
+msgid "Floating Pill & Toolbar"
+msgstr ""
+
+#: admin/class-printah-commands.php:572
+msgid "General Settings"
+msgstr ""
+
+#: admin/partials/printah-admin-display.php:384
+msgid "Guided WooCommerce product creation and sales analysis"
+msgstr ""
+
+#: admin/partials/printah-admin-display.php:213
+msgid "Hide the top admin bar in WP Admin when the Printah floating pill is active."
+msgstr ""
+
+#: admin/partials/printah-admin-display.php:210
+msgid "Hide WordPress Toolbar"
+msgstr ""
+
+#: admin/class-printah-commands.php:591
+msgid "Homepage display and search engine visibility"
+msgstr ""
+
+#: admin/class-printah-commands.php:609
+msgid "Image sizes and upload organization"
+msgstr ""
+
+#: admin/partials/printah-admin-display.php:286
+msgid "Include Elementor templates, tools, settings, and quick \"Edit with Elementor\" actions."
+msgstr ""
+
+#: admin/partials/printah-admin-display.php:318
+msgid "Include store commands and product search for Orders, Products, Coupons, and Analytics."
+msgstr ""
+
+#: admin/partials/printah-admin-display.php:359
+msgid "Item Actions"
+msgstr ""
+
+#: admin/class-printah-admin.php:92 admin/class-printah-settings.php:108 includes/class-printah-settings-controller.php:123
+msgid "Keep either the floating pill or the WordPress admin toolbar visible so quick navigation stays accessible."
+msgstr ""
+
+#: admin/partials/printah-admin-display.php:117
+msgid "Keep the native WordPress palette available alongside Printah."
+msgstr ""
+
+#: admin/partials/printah-admin-display.php:78
+msgid "Keyboard Shortcuts"
+msgstr ""
+
+#: admin/class-printah-commands.php:241
+msgid "Leave Elementor and return to the WP Admin dashboard"
+msgstr ""
+
+#: admin/class-printah-commands.php:371
+msgid "Leave the Block Editor and return to WP Admin"
+msgstr ""
+
+#: admin/class-printah-commands.php:283
+msgid "Leave the Site Editor and return to WP Admin"
+msgstr ""
+
+#: admin/partials/printah-admin-display.php:251
+msgid "Live Content Search"
+msgstr ""
+
+#: admin/class-printah-admin.php:235
+msgid "Log Out"
+msgstr ""
+
+#: src/components/CommandPalette.tsx:67
+msgid "Main Navigation"
+msgstr ""
+
+#: admin/class-printah-commands.php:418
+msgid "Manage all posts and articles"
+msgstr ""
+
+#: admin/class-printah-commands.php:454
+msgid "Manage all site pages"
+msgstr ""
+
+#: admin/class-printah-commands.php:490
+msgid "Manage and switch active themes"
+msgstr ""
+
+#: admin/class-printah-commands.php:763
+msgid "Manage discount codes and promotions"
+msgstr ""
+
+#: admin/class-printah-commands.php:697
+msgid "Manage headers, footers, and theme templates"
+msgstr ""
+
+#: admin/class-printah-commands.php:537
+msgid "Manage installed plugins"
+msgstr ""
+
+#: admin/class-printah-commands.php:523
+msgid "Manage navigation menus"
+msgstr ""
+
+#: admin/class-printah-commands.php:264
+msgid "Manage Pages"
+msgstr ""
+
+#: admin/class-printah-commands.php:436
+msgid "Manage post categories"
+msgstr ""
+
+#: admin/class-printah-commands.php:445
+msgid "Manage post tags"
+msgstr ""
+
+#: admin/class-printah-commands.php:667
+msgid "Manage saved Elementor templates"
+msgstr ""
+
+#: admin/class-printah-commands.php:627
+msgid "Manage site privacy policy page"
+msgstr ""
+
+#: admin/class-printah-commands.php:555
+msgid "Manage user accounts and roles"
+msgstr ""
+
+#: admin/class-printah-commands.php:745
+msgid "Manage your store product catalog"
+msgstr ""
+
+#: admin/class-printah-commands.php:471
+msgid "Media Library"
+msgstr ""
+
+#: admin/class-printah-commands.php:608
+msgid "Media Settings"
+msgstr ""
+
+#: admin/class-printah-commands.php:522
+msgid "Menus"
+msgstr ""
+
+#: src/components/CommandPalette.tsx:1051
+msgid "Min 3 chars"
+msgstr ""
+
+#: admin/class-printah-commands.php:481
+msgid "Moderate and manage comments"
+msgstr ""
+
+#. translators: %s: command label.
+#: src/components/CommandPalette.tsx:920
+#, js-format
+msgid "More actions for %s"
+msgstr ""
+
+#: admin/partials/printah-admin-display.php:363
+msgid "Navigate List"
+msgstr ""
+
+#: admin/class-printah-admin.php:259
+msgid "New Page"
+msgstr ""
+
+#: admin/class-printah-admin.php:258
+msgid "New Post"
+msgstr ""
+
+#: admin/class-printah-admin.php:260
+msgid "New Product"
+msgstr ""
+
+#: src/components/CommandActions.tsx:110
+msgid "No matching actions"
+msgstr ""
+
+#: src/components/CommandPalette.tsx:961
+msgid "No matching commands"
+msgstr ""
+
+#: admin/partials/printah-admin-display.php:282 admin/partials/printah-admin-display.php:314
+msgid "Not active"
+msgstr ""
+
+#. translators: %s: current post or page title.
+#: admin/class-printah-commands.php:190 admin/class-printah-commands.php:313
+#, php-format
+msgid "Open \"%s\" on the site"
+msgstr ""
+
+#: src/components/CommandActions.tsx:52
+msgid "Open in Elementor editor"
+msgstr ""
+
+#: src/components/CommandActions.tsx:65
+msgid "Open in WordPress editor"
+msgstr ""
+
+#: src/components/CommandActions.tsx:53
+msgid "Open on site"
+msgstr ""
+
+#: src/components/CommandActions.tsx:19 src/components/CommandActions.tsx:37 src/components/CommandActions.tsx:63
+msgid "Open Page"
+msgstr ""
+
+#: admin/partials/printah-admin-display.php:351
+msgid "Open Palette"
+msgstr ""
+
+#. translators: %s: keyboard shortcut label.
+#: src/components/FloatingToolbar.tsx:500
+#, js-format
+msgid "Open Printah (%s)"
+msgstr ""
+
+#: admin/class-printah-commands.php:514
+msgid "Open the WordPress Theme Customizer"
+msgstr ""
+
+#: admin/partials/printah-admin-display.php:89
+msgid "Opens Printah from anywhere inside WP Admin and editors."
+msgstr ""
+
+#: admin/class-printah-commands.php:453
+msgid "Pages"
+msgstr ""
+
+#: admin/class-printah-commands.php:617
+msgid "Permalinks Settings"
+msgstr ""
+
+#: admin/class-printah-commands.php:536
+msgid "Plugins"
+msgstr ""
+
+#: admin/class-printah-commands.php:417
+msgid "Posts"
+msgstr ""
+
+#: admin/class-printah-commands.php:310
+msgid "Preview Content"
+msgstr ""
+
+#: admin/class-printah-commands.php:187
+msgid "Preview Page"
+msgstr ""
+
+#: admin/partials/printah-admin-display.php:42
+msgid "Printah"
+msgstr ""
+
+#: src/components/CommandPalette.tsx:646
+msgid "Printah Command Palette"
+msgstr ""
+
+#: admin/partials/printah-admin-display.php:86
+msgid "Printah Palette Shortcut"
+msgstr ""
+
+#: admin/partials/printah-admin-display.php:376
+msgid "Printah Pro"
+msgstr ""
+
+#: src/components/FloatingToolbar.tsx:402
+msgid "Printah quick actions"
+msgstr ""
+
+#: admin/class-printah-commands.php:635
+msgid "Printah Settings"
+msgstr ""
+
+#: admin/class-printah-admin.php:91
+msgid "Printah shortcut and WordPress Command Palette shortcut must be different."
+msgstr ""
+
+#: admin/class-printah-commands.php:626
+msgid "Privacy Settings"
+msgstr ""
+
+#: admin/class-printah-commands.php:408 src/components/FloatingToolbar.tsx:481
+msgid "Profile"
+msgstr ""
+
+#: admin/partials/printah-admin-display.php:345
+msgid "Quick Reference"
+msgstr ""
+
+#: admin/class-printah-commands.php:590
+msgid "Reading Settings"
+msgstr ""
+
+#: src/components/CommandPalette.tsx:234 src/components/CommandPalette.tsx:782
+msgid "Recent Commands"
+msgstr ""
+
+#: admin/class-printah-commands.php:685
+msgid "Regenerate CSS, sync library, and utilities"
+msgstr ""
+
+#: admin/partials/printah-admin-display.php:377
+msgid "Roadmap"
+msgstr ""
+
+#: admin/partials/printah-admin-display.php:367
+msgid "Run / Close"
+msgstr ""
+
+#: admin/class-printah-commands.php:781
+msgid "Sales reports, revenue, and store metrics"
+msgstr ""
+
+#: admin/partials/printah-admin-display.php:396
+msgid "Save Settings"
+msgstr ""
+
+#: admin/partials/printah-admin-display.php:243
+msgid "Search & Integrations"
+msgstr ""
+
+#. translators: %s: command label.
+#: src/components/CommandPalette.tsx:1042
+#, js-format
+msgid "Search actions for %s"
+msgstr ""
+
+#. translators: %s: command label.
+#: src/components/CommandPalette.tsx:1030
+#, js-format
+msgid "Search actions for %s…"
+msgstr ""
+
+#: admin/class-printah-commands.php:546
+msgid "Search and install new plugins"
+msgstr ""
+
+#: admin/partials/printah-admin-display.php:254
+msgid "Search posts, pages, products, and templates when typing 3 or more characters."
+msgstr ""
+
+#: src/components/CommandPalette.tsx:1045
+msgid "Search Printah commands"
+msgstr ""
+
+#: src/components/CommandPalette.tsx:783
+msgid "Search Results"
+msgstr ""
+
+#: admin/partials/printah-admin-display.php:355
+msgid "Search Trigger"
+msgstr ""
+
+#: src/components/CommandPalette.tsx:1033
+msgid "Search WordPress pages or commands…"
+msgstr ""
+
+#: src/components/CommandPalette.tsx:981
+msgid "Searching content…"
+msgstr ""
+
+#: src/components/CommandPalette.tsx:701
+msgid "Select"
+msgstr ""
+
+#: src/components/CommandPalette.tsx:70
+msgid "Settings"
+msgstr ""
+
+#: admin/partials/printah-admin-display.php:180
+msgid "Show Floating Pill"
+msgstr ""
+
+#: admin/class-printah-commands.php:503
+msgid "Site Editor"
+msgstr ""
+
+#: src/components/CommandPalette.tsx:69
+msgid "Site Management"
+msgstr ""
+
+#: admin/class-printah-commands.php:391
+msgid "Site overview and dashboard widgets"
+msgstr ""
+
+#: admin/class-printah-commands.php:573
+msgid "Site title, tagline, timezone, and language"
+msgstr ""
+
+#: admin/class-printah-commands.php:564
+msgid "Site utilities, import, and export"
+msgstr ""
+
+#: admin/class-printah-commands.php:727
+msgid "Store overview and WooCommerce tasks"
+msgstr ""
+
+#: admin/class-printah-commands.php:338
+msgid "Switch from Block Editor to Elementor canvas"
+msgstr ""
+
+#: admin/class-printah-commands.php:273
+msgid "Switch Themes"
+msgstr ""
+
+#: admin/class-printah-commands.php:444
+msgid "Tags"
+msgstr ""
+
+#: admin/class-printah-commands.php:489
+msgid "Themes"
+msgstr ""
+
+#: admin/class-printah-commands.php:563
+msgid "Tools"
+msgstr ""
+
+#: src/components/CommandActions.tsx:112
+msgid "Try another keyword or press Esc to go back."
+msgstr ""
+
+#: src/components/CommandPalette.tsx:967
+msgid "Try another keyword."
+msgstr ""
+
+#: admin/partials/printah-admin-display.php:244
+msgid "Tune live content indexing and plugin command modules."
+msgstr ""
+
+#: admin/class-printah-commands.php:400
+msgid "Update WordPress core, plugins, and themes"
+msgstr ""
+
+#: admin/class-printah-commands.php:399
+msgid "Updates"
+msgstr ""
+
+#: admin/class-printah-commands.php:618
+msgid "URL structure for posts and pages"
+msgstr ""
+
+#: admin/partials/printah-admin-display.php:144
+msgid "Used when the built-in WordPress Command Palette is active."
+msgstr ""
+
+#: admin/class-printah-commands.php:554
+msgid "Users"
+msgstr ""
+
+#: admin/class-printah-commands.php:736
+msgid "View and process customer orders"
+msgstr ""
+
+#: admin/class-printah-commands.php:310
+msgid "View Live Content"
+msgstr ""
+
+#: admin/class-printah-commands.php:187
+msgid "View Live Page"
+msgstr ""
+
+#: includes/class-printah-search-controller.php:244
+msgid "View on Site"
+msgstr ""
+
+#: admin/class-printah-admin.php:225
+msgid "View Site"
+msgstr ""
+
+#: src/components/FloatingToolbar.tsx:427
+msgid "View site or store"
+msgstr ""
+
+#: admin/class-printah-admin.php:245
+msgid "View Store"
+msgstr ""
+
+#: src/components/FloatingToolbar.tsx:237
+msgid "Visit"
+msgstr ""
+
+#: admin/class-printah-commands.php:726 admin/partials/printah-admin-display.php:62 src/components/CommandPalette.tsx:72
+msgid "WooCommerce"
+msgstr ""
+
+#: admin/class-printah-commands.php:780
+msgid "WooCommerce Analytics"
+msgstr ""
+
+#: admin/partials/printah-admin-display.php:311
+msgid "WooCommerce Commands"
+msgstr ""
+
+#: admin/class-printah-commands.php:762
+msgid "WooCommerce Coupons"
+msgstr ""
+
+#: admin/class-printah-commands.php:771
+msgid "WooCommerce Customers"
+msgstr ""
+
+#: admin/class-printah-commands.php:735
+msgid "WooCommerce Orders"
+msgstr ""
+
+#: admin/class-printah-commands.php:744
+msgid "WooCommerce Products"
+msgstr ""
+
+#: admin/class-printah-commands.php:789
+msgid "WooCommerce Settings"
+msgstr ""
+
+#: admin/partials/printah-admin-display.php:54
+msgid "WordPress"
+msgstr ""
+
+#: admin/partials/printah-admin-display.php:114
+msgid "WordPress Command Palette"
+msgstr ""
+
+#. translators: %s: keyboard shortcut label.
+#: src/App.tsx:27
+#, js-format
+msgid "WordPress Command Palette (%s)"
+msgstr ""
+
+#: admin/partials/printah-admin-display.php:141
+msgid "WordPress Palette Shortcut"
+msgstr ""
+
+#: admin/class-printah-commands.php:581
+msgid "Writing Settings"
+msgstr ""

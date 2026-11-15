@@ -1,0 +1,819 @@
+# Indonesian translation for Printah.
+# Copyright (C) 2026 Printah
+# This file is distributed under the same license as the Printah plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: Printah 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/printah/\n"
+"POT-Creation-Date: 2026-11-15 23:25+0800\n"
+"PO-Revision-Date: 2026-11-15 23:25+0800\n"
+"Last-Translator: Printah Contributors\n"
+"Language-Team: Indonesian\n"
+"Language: id_ID\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Domain: printah\n"
+
+
+#. translators: 1: Comments label, 2: pending count.
+#: src/components/FloatingToolbar.tsx:385
+#, js-format
+msgid "%1$s (%2$d pending)"
+msgid_plural "%1$s (%2$d pending)"
+msgstr[0] "%1$s (%2$d menunggu)"
+
+#: admin/class-printah-commands.php:182 admin/class-printah-commands.php:305 includes/class-printah-search-controller.php:129
+msgid "(no title)"
+msgstr "(tanpa judul)"
+
+#: admin/partials/printah-admin-display.php:356
+msgid "3+ chars"
+msgstr "3+ karakter"
+
+#: src/components/FloatingToolbar.tsx:239
+msgid "Account"
+msgstr "Akun"
+
+#: src/components/CommandPalette.tsx:938
+msgid "Actions"
+msgstr "Aksi"
+
+#. translators: %s: command label.
+#: src/components/CommandActions.tsx:133
+#, js-format
+msgid "Actions for %s"
+msgstr "Aksi untuk %s"
+
+#. translators: %s: command label.
+#: src/components/CommandActions.tsx:127
+#, js-format
+msgid "Actions · %s"
+msgstr "Aksi · %s"
+
+#: admin/class-printah-commands.php:462
+msgid "Add New Page"
+msgstr "Tambah Halaman Baru"
+
+#: admin/class-printah-commands.php:545
+msgid "Add New Plugin"
+msgstr "Tambah Plugin Baru"
+
+#: admin/class-printah-commands.php:426
+msgid "Add New Post"
+msgstr "Tambah Tulisan Baru"
+
+#: admin/class-printah-commands.php:753
+msgid "Add New Product"
+msgstr "Tambah Produk Baru"
+
+#: admin/partials/printah-admin-display.php:379
+msgid "AI-assisted workflows designed to run straight from the command palette."
+msgstr "Alur kerja berbantuan AI yang dirancang berjalan langsung dari command palette."
+
+#. translators: %s: plural post type name.
+#: admin/class-printah-commands.php:226 admin/class-printah-commands.php:356
+#, php-format
+msgid "All %s"
+msgstr "Semua %s"
+
+#: src/components/CommandPalette.tsx:668 src/components/CommandPalette.tsx:713
+msgid "Back"
+msgstr "Kembali"
+
+#: admin/class-printah-commands.php:282 admin/class-printah-commands.php:370
+msgid "Back to Dashboard"
+msgstr "Kembali ke Dasbor"
+
+#: admin/class-printah-commands.php:772
+msgid "Browse customer profiles and order history"
+msgstr "Lihat profil pelanggan dan riwayat pesanan"
+
+#: admin/class-printah-commands.php:472
+msgid "Browse images, videos, and files"
+msgstr "Jelajahi gambar, video, dan berkas"
+
+#: admin/class-printah-commands.php:435
+msgid "Categories"
+msgstr "Kategori"
+
+#: admin/partials/printah-admin-display.php:393
+msgid "Changes take effect immediately across WP Admin after saving."
+msgstr "Perubahan langsung berlaku di seluruh WP Admin setelah disimpan."
+
+#: admin/partials/printah-admin-display.php:79
+msgid "Choose non-overlapping shortcuts for Printah and the built-in WordPress palette."
+msgstr "Pilih pintasan yang tidak bentrok untuk Printah dan palette bawaan WordPress."
+
+#: admin/class-printah-settings.php:94 includes/class-printah-settings-controller.php:112
+msgid "Choose two different shortcuts from the available options."
+msgstr "Pilih dua pintasan yang berbeda dari opsi yang tersedia."
+
+#: src/components/CommandPalette.tsx:746
+msgid "Close"
+msgstr "Tutup"
+
+#: admin/class-printah-commands.php:600
+msgid "Comment moderation and avatar preferences"
+msgstr "Moderasi komentar dan preferensi avatar"
+
+#: admin/class-printah-admin.php:252 admin/class-printah-commands.php:480
+msgid "Comments"
+msgstr "Komentar"
+
+#: admin/class-printah-commands.php:676
+msgid "Configure Elementor features and integrations"
+msgstr "Atur fitur dan integrasi Elementor"
+
+#: admin/class-printah-commands.php:636
+msgid "Configure Printah shortcuts, floating pill, and modules"
+msgstr "Atur pintasan, pil mengambang, dan modul Printah"
+
+#: admin/class-printah-commands.php:790
+msgid "Configure store, payments, and shipping"
+msgstr "Atur toko, pembayaran, dan pengiriman"
+
+#: src/components/CommandPalette.tsx:68
+msgid "Content"
+msgstr "Konten"
+
+#: src/components/CommandPalette.tsx:991
+msgid "Content search failed. Try again."
+msgstr "Pencarian konten gagal. Coba lagi."
+
+#: admin/partials/printah-admin-display.php:173
+msgid "Control the bottom-center quick launcher and the default WordPress admin bar."
+msgstr "Atur peluncur cepat di bagian bawah tengah dan bilah admin bawaan WordPress."
+
+#: admin/class-printah-commands.php:427
+msgid "Create a new blog post"
+msgstr "Buat tulisan blog baru"
+
+#: admin/class-printah-commands.php:463
+msgid "Create a new page"
+msgstr "Buat halaman baru"
+
+#: admin/class-printah-commands.php:754
+msgid "Create a new WooCommerce product"
+msgstr "Buat produk WooCommerce baru"
+
+#: src/components/FloatingToolbar.tsx:238
+msgid "Create New"
+msgstr "Buat Baru"
+
+#: src/components/FloatingToolbar.tsx:466
+msgid "Create new"
+msgstr "Buat baru"
+
+#: admin/partials/printah-admin-display.php:383
+msgid "Custom Elementor widgets and page drafts"
+msgstr "Widget Elementor kustom dan draf halaman"
+
+#: admin/class-printah-commands.php:513
+msgid "Customize"
+msgstr "Sesuaikan"
+
+#: admin/class-printah-commands.php:504
+msgid "Customize full site editing templates"
+msgstr "Sesuaikan templat penyuntingan situs penuh"
+
+#: admin/class-printah-commands.php:390
+msgid "Dashboard"
+msgstr "Dasbor"
+
+#: admin/class-printah-commands.php:582
+msgid "Default post format and category"
+msgstr "Format tulisan dan kategori bawaan"
+
+#: admin/partials/printah-admin-display.php:282 admin/partials/printah-admin-display.php:314
+msgid "Detected"
+msgstr "Terdeteksi"
+
+#: admin/class-printah-commands.php:599
+msgid "Discussion Settings"
+msgstr "Pengaturan Diskusi"
+
+#: admin/partials/printah-admin-display.php:183
+msgid "Display the floating pill for View Site, Comments, New, and Profile actions."
+msgstr "Tampilkan pil mengambang untuk aksi Lihat Situs, Komentar, Baru, dan Profil."
+
+#: src/components/CommandActions.tsx:36 src/components/CommandActions.tsx:62
+msgid "Edit Content"
+msgstr "Edit Konten"
+
+#: admin/class-printah-commands.php:205
+msgid "Edit in WordPress Editor"
+msgstr "Edit di Editor WordPress"
+
+#: admin/class-printah-admin.php:231
+msgid "Edit Profile"
+msgstr "Edit Profil"
+
+#: admin/class-printah-commands.php:337 includes/class-printah-search-controller.php:267
+msgid "Edit with Elementor"
+msgstr "Edit dengan Elementor"
+
+#: admin/class-printah-commands.php:409
+msgid "Edit your profile and password"
+msgstr "Edit profil dan kata sandi Anda"
+
+#: admin/partials/printah-admin-display.php:58 src/components/CommandPalette.tsx:71
+msgid "Elementor"
+msgstr "Elementor"
+
+#: admin/partials/printah-admin-display.php:279
+msgid "Elementor Commands"
+msgstr "Perintah Elementor"
+
+#: admin/class-printah-commands.php:666
+msgid "Elementor Saved Templates"
+msgstr "Templat Tersimpan Elementor"
+
+#: admin/class-printah-commands.php:675
+msgid "Elementor Settings"
+msgstr "Pengaturan Elementor"
+
+#: admin/class-printah-commands.php:696
+msgid "Elementor Theme Builder"
+msgstr "Theme Builder Elementor"
+
+#: admin/class-printah-commands.php:684
+msgid "Elementor Tools"
+msgstr "Alat Elementor"
+
+#: admin/partials/printah-admin-display.php:51
+msgid "Environment status"
+msgstr "Status lingkungan"
+
+#: admin/partials/printah-admin-display.php:346
+msgid "Essential keys while navigating inside the palette."
+msgstr "Tombol penting saat bernavigasi di dalam palette."
+
+#: admin/class-printah-commands.php:206
+msgid "Exit Elementor and open this content in WordPress"
+msgstr "Keluar dari Elementor dan buka konten ini di WordPress"
+
+#: admin/class-printah-commands.php:229
+msgid "Exit Elementor to the content list"
+msgstr "Keluar dari Elementor ke daftar konten"
+
+#: admin/class-printah-commands.php:274
+msgid "Exit Site Editor and manage installed themes"
+msgstr "Keluar dari Site Editor dan kelola tema terpasang"
+
+#: admin/class-printah-commands.php:265
+msgid "Exit Site Editor and open Pages list"
+msgstr "Keluar dari Site Editor dan buka daftar Halaman"
+
+#: admin/class-printah-commands.php:359
+msgid "Exit the editor to the content list"
+msgstr "Keluar dari editor ke daftar konten"
+
+#: admin/class-printah-commands.php:240
+msgid "Exit to WordPress Dashboard"
+msgstr "Keluar ke Dasbor WordPress"
+
+#: admin/partials/printah-admin-display.php:385
+msgid "Fast AI post drafting directly in WordPress"
+msgstr "Pembuatan draf tulisan AI cepat langsung di WordPress"
+
+#: admin/partials/printah-admin-display.php:46
+msgid "Fast command palette and floating navigation across WordPress admin and editors."
+msgstr "Command palette cepat dan navigasi mengambang di seluruh admin dan editor WordPress."
+
+#: admin/partials/printah-admin-display.php:172
+msgid "Floating Pill & Toolbar"
+msgstr "Pil Mengambang & Toolbar"
+
+#: admin/class-printah-commands.php:572
+msgid "General Settings"
+msgstr "Pengaturan Umum"
+
+#: admin/partials/printah-admin-display.php:384
+msgid "Guided WooCommerce product creation and sales analysis"
+msgstr "Pembuatan produk WooCommerce dan analisis penjualan terpandu"
+
+#: admin/partials/printah-admin-display.php:213
+msgid "Hide the top admin bar in WP Admin when the Printah floating pill is active."
+msgstr "Sembunyikan bilah admin atas di WP Admin saat pil mengambang Printah aktif."
+
+#: admin/partials/printah-admin-display.php:210
+msgid "Hide WordPress Toolbar"
+msgstr "Sembunyikan Toolbar WordPress"
+
+#: admin/class-printah-commands.php:591
+msgid "Homepage display and search engine visibility"
+msgstr "Tampilan beranda dan visibilitas mesin pencari"
+
+#: admin/class-printah-commands.php:609
+msgid "Image sizes and upload organization"
+msgstr "Ukuran gambar dan pengaturan unggahan"
+
+#: admin/partials/printah-admin-display.php:286
+msgid "Include Elementor templates, tools, settings, and quick \"Edit with Elementor\" actions."
+msgstr "Sertakan templat, alat, pengaturan Elementor, serta aksi cepat \"Edit dengan Elementor\"."
+
+#: admin/partials/printah-admin-display.php:318
+msgid "Include store commands and product search for Orders, Products, Coupons, and Analytics."
+msgstr "Sertakan perintah toko dan pencarian produk untuk Pesanan, Produk, Kupon, dan Analitik."
+
+#: admin/partials/printah-admin-display.php:359
+msgid "Item Actions"
+msgstr "Aksi Item"
+
+#: admin/class-printah-admin.php:92 admin/class-printah-settings.php:108 includes/class-printah-settings-controller.php:123
+msgid "Keep either the floating pill or the WordPress admin toolbar visible so quick navigation stays accessible."
+msgstr "Biarkan pil mengambang atau toolbar admin WordPress tetap terlihat agar navigasi cepat tetap dapat diakses."
+
+#: admin/partials/printah-admin-display.php:117
+msgid "Keep the native WordPress palette available alongside Printah."
+msgstr "Tetap sediakan palette bawaan WordPress berdampingan dengan Printah."
+
+#: admin/partials/printah-admin-display.php:78
+msgid "Keyboard Shortcuts"
+msgstr "Pintasan Keyboard"
+
+#: admin/class-printah-commands.php:241
+msgid "Leave Elementor and return to the WP Admin dashboard"
+msgstr "Tinggalkan Elementor dan kembali ke dasbor WP Admin"
+
+#: admin/class-printah-commands.php:371
+msgid "Leave the Block Editor and return to WP Admin"
+msgstr "Tinggalkan Block Editor dan kembali ke WP Admin"
+
+#: admin/class-printah-commands.php:283
+msgid "Leave the Site Editor and return to WP Admin"
+msgstr "Tinggalkan Site Editor dan kembali ke WP Admin"
+
+#: admin/partials/printah-admin-display.php:251
+msgid "Live Content Search"
+msgstr "Pencarian Konten Langsung"
+
+#: admin/class-printah-admin.php:235
+msgid "Log Out"
+msgstr "Keluar"
+
+#: src/components/CommandPalette.tsx:67
+msgid "Main Navigation"
+msgstr "Navigasi Utama"
+
+#: admin/class-printah-commands.php:418
+msgid "Manage all posts and articles"
+msgstr "Kelola semua tulisan dan artikel"
+
+#: admin/class-printah-commands.php:454
+msgid "Manage all site pages"
+msgstr "Kelola semua halaman situs"
+
+#: admin/class-printah-commands.php:490
+msgid "Manage and switch active themes"
+msgstr "Kelola dan ganti tema aktif"
+
+#: admin/class-printah-commands.php:763
+msgid "Manage discount codes and promotions"
+msgstr "Kelola kode diskon dan promosi"
+
+#: admin/class-printah-commands.php:697
+msgid "Manage headers, footers, and theme templates"
+msgstr "Kelola header, footer, dan templat tema"
+
+#: admin/class-printah-commands.php:537
+msgid "Manage installed plugins"
+msgstr "Kelola plugin terpasang"
+
+#: admin/class-printah-commands.php:523
+msgid "Manage navigation menus"
+msgstr "Kelola menu navigasi"
+
+#: admin/class-printah-commands.php:264
+msgid "Manage Pages"
+msgstr "Kelola Halaman"
+
+#: admin/class-printah-commands.php:436
+msgid "Manage post categories"
+msgstr "Kelola kategori tulisan"
+
+#: admin/class-printah-commands.php:445
+msgid "Manage post tags"
+msgstr "Kelola tag tulisan"
+
+#: admin/class-printah-commands.php:667
+msgid "Manage saved Elementor templates"
+msgstr "Kelola templat Elementor tersimpan"
+
+#: admin/class-printah-commands.php:627
+msgid "Manage site privacy policy page"
+msgstr "Kelola halaman kebijakan privasi situs"
+
+#: admin/class-printah-commands.php:555
+msgid "Manage user accounts and roles"
+msgstr "Kelola akun pengguna dan peran"
+
+#: admin/class-printah-commands.php:745
+msgid "Manage your store product catalog"
+msgstr "Kelola katalog produk toko Anda"
+
+#: admin/class-printah-commands.php:471
+msgid "Media Library"
+msgstr "Pustaka Media"
+
+#: admin/class-printah-commands.php:608
+msgid "Media Settings"
+msgstr "Pengaturan Media"
+
+#: admin/class-printah-commands.php:522
+msgid "Menus"
+msgstr "Menu"
+
+#: src/components/CommandPalette.tsx:1051
+msgid "Min 3 chars"
+msgstr "Min 3 karakter"
+
+#: admin/class-printah-commands.php:481
+msgid "Moderate and manage comments"
+msgstr "Moderasi dan kelola komentar"
+
+#. translators: %s: command label.
+#: src/components/CommandPalette.tsx:920
+#, js-format
+msgid "More actions for %s"
+msgstr "Aksi lainnya untuk %s"
+
+#: admin/partials/printah-admin-display.php:363
+msgid "Navigate List"
+msgstr "Navigasi Daftar"
+
+#: admin/class-printah-admin.php:259
+msgid "New Page"
+msgstr "Halaman Baru"
+
+#: admin/class-printah-admin.php:258
+msgid "New Post"
+msgstr "Tulisan Baru"
+
+#: admin/class-printah-admin.php:260
+msgid "New Product"
+msgstr "Produk Baru"
+
+#: src/components/CommandActions.tsx:110
+msgid "No matching actions"
+msgstr "Tidak ada aksi yang cocok"
+
+#: src/components/CommandPalette.tsx:961
+msgid "No matching commands"
+msgstr "Tidak ada perintah yang cocok"
+
+#: admin/partials/printah-admin-display.php:282 admin/partials/printah-admin-display.php:314
+msgid "Not active"
+msgstr "Tidak aktif"
+
+#. translators: %s: current post or page title.
+#: admin/class-printah-commands.php:190 admin/class-printah-commands.php:313
+#, php-format
+msgid "Open \"%s\" on the site"
+msgstr "Buka \"%s\" di situs"
+
+#: src/components/CommandActions.tsx:52
+msgid "Open in Elementor editor"
+msgstr "Buka di editor Elementor"
+
+#: src/components/CommandActions.tsx:65
+msgid "Open in WordPress editor"
+msgstr "Buka di editor WordPress"
+
+#: src/components/CommandActions.tsx:53
+msgid "Open on site"
+msgstr "Buka di situs"
+
+#: src/components/CommandActions.tsx:19 src/components/CommandActions.tsx:37 src/components/CommandActions.tsx:63
+msgid "Open Page"
+msgstr "Buka Halaman"
+
+#: admin/partials/printah-admin-display.php:351
+msgid "Open Palette"
+msgstr "Buka Palette"
+
+#. translators: %s: keyboard shortcut label.
+#: src/components/FloatingToolbar.tsx:500
+#, js-format
+msgid "Open Printah (%s)"
+msgstr "Buka Printah (%s)"
+
+#: admin/class-printah-commands.php:514
+msgid "Open the WordPress Theme Customizer"
+msgstr "Buka Theme Customizer WordPress"
+
+#: admin/partials/printah-admin-display.php:89
+msgid "Opens Printah from anywhere inside WP Admin and editors."
+msgstr "Membuka Printah dari mana saja di WP Admin dan editor."
+
+#: admin/class-printah-commands.php:453
+msgid "Pages"
+msgstr "Halaman"
+
+#: admin/class-printah-commands.php:617
+msgid "Permalinks Settings"
+msgstr "Pengaturan Permalink"
+
+#: admin/class-printah-commands.php:536
+msgid "Plugins"
+msgstr "Plugin"
+
+#: admin/class-printah-commands.php:417
+msgid "Posts"
+msgstr "Tulisan"
+
+#: admin/class-printah-commands.php:310
+msgid "Preview Content"
+msgstr "Pratinjau Konten"
+
+#: admin/class-printah-commands.php:187
+msgid "Preview Page"
+msgstr "Pratinjau Halaman"
+
+#: admin/partials/printah-admin-display.php:42
+msgid "Printah"
+msgstr "Printah"
+
+#: src/components/CommandPalette.tsx:646
+msgid "Printah Command Palette"
+msgstr "Printah Command Palette"
+
+#: admin/partials/printah-admin-display.php:86
+msgid "Printah Palette Shortcut"
+msgstr "Pintasan Palette Printah"
+
+#: admin/partials/printah-admin-display.php:376
+msgid "Printah Pro"
+msgstr "Printah Pro"
+
+#: src/components/FloatingToolbar.tsx:402
+msgid "Printah quick actions"
+msgstr "Aksi cepat Printah"
+
+#: admin/class-printah-commands.php:635
+msgid "Printah Settings"
+msgstr "Pengaturan Printah"
+
+#: admin/class-printah-admin.php:91
+msgid "Printah shortcut and WordPress Command Palette shortcut must be different."
+msgstr "Pintasan Printah dan pintasan Command Palette WordPress harus berbeda."
+
+#: admin/class-printah-commands.php:626
+msgid "Privacy Settings"
+msgstr "Pengaturan Privasi"
+
+#: admin/class-printah-commands.php:408 src/components/FloatingToolbar.tsx:481
+msgid "Profile"
+msgstr "Profil"
+
+#: admin/partials/printah-admin-display.php:345
+msgid "Quick Reference"
+msgstr "Referensi Cepat"
+
+#: admin/class-printah-commands.php:590
+msgid "Reading Settings"
+msgstr "Pengaturan Membaca"
+
+#: src/components/CommandPalette.tsx:234 src/components/CommandPalette.tsx:782
+msgid "Recent Commands"
+msgstr "Perintah Terakhir"
+
+#: admin/class-printah-commands.php:685
+msgid "Regenerate CSS, sync library, and utilities"
+msgstr "Buat ulang CSS, sinkronkan pustaka, dan utilitas"
+
+#: admin/partials/printah-admin-display.php:377
+msgid "Roadmap"
+msgstr "Peta Jalan"
+
+#: admin/partials/printah-admin-display.php:367
+msgid "Run / Close"
+msgstr "Jalankan / Tutup"
+
+#: admin/class-printah-commands.php:781
+msgid "Sales reports, revenue, and store metrics"
+msgstr "Laporan penjualan, pendapatan, dan metrik toko"
+
+#: admin/partials/printah-admin-display.php:396
+msgid "Save Settings"
+msgstr "Simpan Pengaturan"
+
+#: admin/partials/printah-admin-display.php:243
+msgid "Search & Integrations"
+msgstr "Pencarian & Integrasi"
+
+#. translators: %s: command label.
+#: src/components/CommandPalette.tsx:1042
+#, js-format
+msgid "Search actions for %s"
+msgstr "Cari aksi untuk %s"
+
+#. translators: %s: command label.
+#: src/components/CommandPalette.tsx:1030
+#, js-format
+msgid "Search actions for %s…"
+msgstr "Cari aksi untuk %s…"
+
+#: admin/class-printah-commands.php:546
+msgid "Search and install new plugins"
+msgstr "Cari dan pasang plugin baru"
+
+#: admin/partials/printah-admin-display.php:254
+msgid "Search posts, pages, products, and templates when typing 3 or more characters."
+msgstr "Cari tulisan, halaman, produk, dan templat saat mengetik 3 karakter atau lebih."
+
+#: src/components/CommandPalette.tsx:1045
+msgid "Search Printah commands"
+msgstr "Cari perintah Printah"
+
+#: src/components/CommandPalette.tsx:783
+msgid "Search Results"
+msgstr "Hasil Pencarian"
+
+#: admin/partials/printah-admin-display.php:355
+msgid "Search Trigger"
+msgstr "Pemicu Pencarian"
+
+#: src/components/CommandPalette.tsx:1033
+msgid "Search WordPress pages or commands…"
+msgstr "Cari halaman atau perintah WordPress…"
+
+#: src/components/CommandPalette.tsx:981
+msgid "Searching content…"
+msgstr "Mencari konten…"
+
+#: src/components/CommandPalette.tsx:701
+msgid "Select"
+msgstr "Pilih"
+
+#: src/components/CommandPalette.tsx:70
+msgid "Settings"
+msgstr "Pengaturan"
+
+#: admin/partials/printah-admin-display.php:180
+msgid "Show Floating Pill"
+msgstr "Tampilkan Pil Mengambang"
+
+#: admin/class-printah-commands.php:503
+msgid "Site Editor"
+msgstr "Editor Situs"
+
+#: src/components/CommandPalette.tsx:69
+msgid "Site Management"
+msgstr "Manajemen Situs"
+
+#: admin/class-printah-commands.php:391
+msgid "Site overview and dashboard widgets"
+msgstr "Ringkasan situs dan widget dasbor"
+
+#: admin/class-printah-commands.php:573
+msgid "Site title, tagline, timezone, and language"
+msgstr "Judul situs, slogan, zona waktu, dan bahasa"
+
+#: admin/class-printah-commands.php:564
+msgid "Site utilities, import, and export"
+msgstr "Utilitas situs, impor, dan ekspor"
+
+#: admin/class-printah-commands.php:727
+msgid "Store overview and WooCommerce tasks"
+msgstr "Ringkasan toko dan tugas WooCommerce"
+
+#: admin/class-printah-commands.php:338
+msgid "Switch from Block Editor to Elementor canvas"
+msgstr "Beralih dari Block Editor ke kanvas Elementor"
+
+#: admin/class-printah-commands.php:273
+msgid "Switch Themes"
+msgstr "Ganti Tema"
+
+#: admin/class-printah-commands.php:444
+msgid "Tags"
+msgstr "Tag"
+
+#: admin/class-printah-commands.php:489
+msgid "Themes"
+msgstr "Tema"
+
+#: admin/class-printah-commands.php:563
+msgid "Tools"
+msgstr "Alat"
+
+#: src/components/CommandActions.tsx:112
+msgid "Try another keyword or press Esc to go back."
+msgstr "Coba kata kunci lain atau tekan Esc untuk kembali."
+
+#: src/components/CommandPalette.tsx:967
+msgid "Try another keyword."
+msgstr "Coba kata kunci lain."
+
+#: admin/partials/printah-admin-display.php:244
+msgid "Tune live content indexing and plugin command modules."
+msgstr "Atur pengindeksan konten langsung dan modul perintah plugin."
+
+#: admin/class-printah-commands.php:400
+msgid "Update WordPress core, plugins, and themes"
+msgstr "Perbarui inti WordPress, plugin, dan tema"
+
+#: admin/class-printah-commands.php:399
+msgid "Updates"
+msgstr "Pembaruan"
+
+#: admin/class-printah-commands.php:618
+msgid "URL structure for posts and pages"
+msgstr "Struktur URL untuk tulisan dan halaman"
+
+#: admin/partials/printah-admin-display.php:144
+msgid "Used when the built-in WordPress Command Palette is active."
+msgstr "Digunakan saat Command Palette bawaan WordPress aktif."
+
+#: admin/class-printah-commands.php:554
+msgid "Users"
+msgstr "Pengguna"
+
+#: admin/class-printah-commands.php:736
+msgid "View and process customer orders"
+msgstr "Lihat dan proses pesanan pelanggan"
+
+#: admin/class-printah-commands.php:310
+msgid "View Live Content"
+msgstr "Lihat Konten Langsung"
+
+#: admin/class-printah-commands.php:187
+msgid "View Live Page"
+msgstr "Lihat Halaman Langsung"
+
+#: includes/class-printah-search-controller.php:244
+msgid "View on Site"
+msgstr "Lihat di Situs"
+
+#: admin/class-printah-admin.php:225
+msgid "View Site"
+msgstr "Lihat Situs"
+
+#: src/components/FloatingToolbar.tsx:427
+msgid "View site or store"
+msgstr "Lihat situs atau toko"
+
+#: admin/class-printah-admin.php:245
+msgid "View Store"
+msgstr "Lihat Toko"
+
+#: src/components/FloatingToolbar.tsx:237
+msgid "Visit"
+msgstr "Kunjungi"
+
+#: admin/class-printah-commands.php:726 admin/partials/printah-admin-display.php:62 src/components/CommandPalette.tsx:72
+msgid "WooCommerce"
+msgstr "WooCommerce"
+
+#: admin/class-printah-commands.php:780
+msgid "WooCommerce Analytics"
+msgstr "Analitik WooCommerce"
+
+#: admin/partials/printah-admin-display.php:311
+msgid "WooCommerce Commands"
+msgstr "Perintah WooCommerce"
+
+#: admin/class-printah-commands.php:762
+msgid "WooCommerce Coupons"
+msgstr "Kupon WooCommerce"
+
+#: admin/class-printah-commands.php:771
+msgid "WooCommerce Customers"
+msgstr "Pelanggan WooCommerce"
+
+#: admin/class-printah-commands.php:735
+msgid "WooCommerce Orders"
+msgstr "Pesanan WooCommerce"
+
+#: admin/class-printah-commands.php:744
+msgid "WooCommerce Products"
+msgstr "Produk WooCommerce"
+
+#: admin/class-printah-commands.php:789
+msgid "WooCommerce Settings"
+msgstr "Pengaturan WooCommerce"
+
+#: admin/partials/printah-admin-display.php:54
+msgid "WordPress"
+msgstr "WordPress"
+
+#: admin/partials/printah-admin-display.php:114
+msgid "WordPress Command Palette"
+msgstr "Command Palette WordPress"
+
+#. translators: %s: keyboard shortcut label.
+#: src/App.tsx:27
+#, js-format
+msgid "WordPress Command Palette (%s)"
+msgstr "Command Palette WordPress (%s)"
+
+#: admin/partials/printah-admin-display.php:141
+msgid "WordPress Palette Shortcut"
+msgstr "Pintasan Palette WordPress"
+
+#: admin/class-printah-commands.php:581
+msgid "Writing Settings"
+msgstr "Pengaturan Menulis"

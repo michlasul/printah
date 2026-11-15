@@ -5,11 +5,10 @@
  * A class definition that includes attributes and functions used across both the
  * public-facing side of the site and the admin area.
  *
- * @link       http://example.com
  * @since      1.0.0
  *
- * @package    Printa
- * @subpackage Printa/includes
+ * @package    Printah
+ * @subpackage Printah/includes
  */
 
 namespace Printah;
@@ -34,7 +33,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since      1.0.0
  * @package    Printah
  * @subpackage Printah/includes
- * @author     Davies Holmes
+ * @author     Ichlas
  */
 final class Printah_Core {
 
@@ -108,6 +107,7 @@ final class Printah_Core {
 		require_once dirname( __DIR__ ) . '/admin/class-printah-settings.php';
 		require_once dirname( __DIR__ ) . '/admin/class-printah-commands.php';
 		require_once dirname( __DIR__ ) . '/includes/class-printah-search-controller.php';
+		require_once dirname( __DIR__ ) . '/includes/class-printah-settings-controller.php';
 
 		$this->loader = new Printah_Loader();
 	}
@@ -139,9 +139,12 @@ final class Printah_Core {
 		$this->loader->add_action( 'admin_enqueue_scripts', $admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $admin, 'enqueue_scripts' );
 		$this->loader->add_action( 'admin_footer', $admin, 'render_palette_root' );
+		$this->loader->add_action( 'elementor/editor/after_enqueue_scripts', $admin, 'enqueue_elementor_editor_scripts' );
+		$this->loader->add_action( 'elementor/editor/footer', $admin, 'render_palette_root' );
 		$this->loader->add_action( 'wp_before_admin_bar_render', $admin, 'remove_native_toolbar_trigger' );
 		$this->loader->add_action( 'admin_menu', $admin, 'printah_admin_menu' );
 		$this->loader->add_action( 'rest_api_init', new Printah_Search_Controller( $this->loader ), 'register_routes' );
+		$this->loader->add_action( 'rest_api_init', new Printah_Settings_Controller( new Printah_Settings() ), 'register_routes' );
 	}
 
 	/**

@@ -35,15 +35,32 @@ final class Printah_Settings {
 
 	/** Get saved values with defaults. */
 	public static function get(): array {
-		$saved = get_option( self::OPTION, array() );
-		return wp_parse_args(
+		$saved    = get_option( self::OPTION, array() );
+		$defaults = array(
+			'printah_shortcut'           => 'mod+k',
+			'native_palette_enabled'     => false,
+			'native_shortcut'            => 'mod+j',
+			'hide_toolbar'               => true,
+			'show_floating_pill'         => true,
+			'content_search_enabled'     => true,
+			'module_elementor_enabled'   => true,
+			'module_woocommerce_enabled' => true,
+		);
+
+		$merged = wp_parse_args(
 			is_array( $saved ) ? $saved : array(),
-			array(
-				'printah_shortcut'       => 'mod+k',
-				'native_palette_enabled' => false,
-				'native_shortcut'        => 'mod+j',
-				'hide_toolbar'           => true,
-			)
+			$defaults
+		);
+
+		return array(
+			'printah_shortcut'           => (string) $merged['printah_shortcut'],
+			'native_palette_enabled'     => ! empty( $merged['native_palette_enabled'] ),
+			'native_shortcut'            => (string) $merged['native_shortcut'],
+			'hide_toolbar'               => ! empty( $merged['hide_toolbar'] ),
+			'show_floating_pill'         => ! empty( $merged['show_floating_pill'] ),
+			'content_search_enabled'     => ! empty( $merged['content_search_enabled'] ),
+			'module_elementor_enabled'   => ! empty( $merged['module_elementor_enabled'] ),
+			'module_woocommerce_enabled' => ! empty( $merged['module_woocommerce_enabled'] ),
 		);
 	}
 
@@ -79,11 +96,29 @@ final class Printah_Settings {
 			$native  = $previous['native_shortcut'];
 		}
 
+		$hide_toolbar       = ! empty( $input['hide_toolbar'] );
+		$show_floating_pill = array_key_exists( 'show_floating_pill', $input )
+			? ! empty( $input['show_floating_pill'] )
+			: true;
+
+		if ( ! $show_floating_pill && $hide_toolbar ) {
+			add_settings_error(
+				self::OPTION,
+				'pill_toolbar_conflict',
+				__( 'Keep either the floating pill or the WordPress admin toolbar visible so quick navigation stays accessible.', 'printah' )
+			);
+			$hide_toolbar = false;
+		}
+
 		return array(
-			'printah_shortcut'       => $printah,
-			'native_palette_enabled' => ! empty( $input['native_palette_enabled'] ),
-			'native_shortcut'        => $native,
-			'hide_toolbar'           => ! empty( $input['hide_toolbar'] ),
+			'printah_shortcut'           => $printah,
+			'native_palette_enabled'     => ! empty( $input['native_palette_enabled'] ),
+			'native_shortcut'            => $native,
+			'hide_toolbar'               => $hide_toolbar,
+			'show_floating_pill'         => $show_floating_pill,
+			'content_search_enabled'     => array_key_exists( 'content_search_enabled', $input ) ? ! empty( $input['content_search_enabled'] ) : true,
+			'module_elementor_enabled'   => array_key_exists( 'module_elementor_enabled', $input ) ? ! empty( $input['module_elementor_enabled'] ) : true,
+			'module_woocommerce_enabled' => array_key_exists( 'module_woocommerce_enabled', $input ) ? ! empty( $input['module_woocommerce_enabled'] ) : true,
 		);
 	}
 
