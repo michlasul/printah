@@ -12,6 +12,7 @@
  *
  * @wordpress-plugin
  * Plugin Name:       Printah
+ * Plugin URI:        https://github.com/michlasul/printah
  * Description:       A fast command palette and floating toolbar for WordPress. Navigate WP Admin, search posts, pages, and custom post types, and jump into Elementor or WooCommerce from your keyboard.
  * Version:           1.0.0
  * Requires at least: 6.5

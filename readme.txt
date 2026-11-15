@@ -51,13 +51,13 @@ No. All essential toolbar links—View Site/Store, Comments, Create New, Edit Pr
 No. Printah works out of the box on any WordPress site. When Elementor or WooCommerce is active, Printah automatically unlocks dedicated shortcuts for them—and you can turn either integration off in settings if you prefer.
 
 = Where is the source code for the compiled assets? =
-All unminified TypeScript, React, and CSS source files are included inside the `src/` directory alongside `package.json`, and can be built using standard `@wordpress/scripts` (`npm run build`).
+All unminified TypeScript, React, and CSS source files are included inside the `src/` directory alongside `package.json`, and can be built using standard `@wordpress/scripts` (`npm run build`). The public source repository is also available at https://github.com/michlasul/printah.
 
 == Screenshots ==
 
 1. Printah Command Palette searching WordPress pages, settings, and quick actions.
 2. Printah floating quick-action pill at the bottom center of WP Admin.
-3. Dark Liquid-Glass Printah Settings dashboard for shortcuts, toolbar controls, and integrations.
+3. Printah Settings dashboard using standard WordPress Admin UI for shortcuts, toolbar controls, and integrations.
 4. Contextual commands while editing inside the Block Editor or Elementor.
 
 == Changelog ==
@@ -68,7 +68,7 @@ All unminified TypeScript, React, and CSS source files are included inside the `
 * Added floating quick-action pill with View Site/Store, Comments badge, Create New, and Profile/Log Out menus.
 * Added contextual commands for Block Editor, Site Editor, and Elementor editor.
 * Added automatic Elementor and WooCommerce command integrations with module toggles.
-* Added dark Printah Settings dashboard, shortcut conflict validation, and REST settings endpoint.
+* Added Printah Settings dashboard with shortcut conflict validation and REST settings endpoint.
 * Added English and Indonesian (`id_ID`) translations.
 
 == Upgrade Notice ==

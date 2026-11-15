@@ -1,7 +1,15 @@
 {
 	"name": "printah",
 	"version": "1.0.0",
-	"description": "",
+	"description": "A fast command palette and floating toolbar for WordPress.",
+	"homepage": "https://github.com/michlasul/printah",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/michlasul/printah.git"
+	},
+	"bugs": {
+		"url": "https://github.com/michlasul/printah/issues"
+	},
 	"scripts": {
 		"env:start": "wp-env start",
 		"env:stop": "wp-env stop",
