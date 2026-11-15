@@ -26,7 +26,7 @@ msgstr[1] ""
 msgid "(no title)"
 msgstr ""
 
-#: admin/partials/printah-admin-display.php:356
+#: admin/partials/printah-admin-display.php:331
 msgid "3+ chars"
 msgstr ""
 
@@ -66,7 +66,7 @@ msgstr ""
 msgid "Add New Product"
 msgstr ""
 
-#: admin/partials/printah-admin-display.php:379
+#: admin/partials/printah-admin-display.php:358
 msgid "AI-assisted workflows designed to run straight from the command palette."
 msgstr ""
 
@@ -96,11 +96,11 @@ msgstr ""
 msgid "Categories"
 msgstr ""
 
-#: admin/partials/printah-admin-display.php:393
+#: admin/partials/printah-admin-display.php:309
 msgid "Changes take effect immediately across WP Admin after saving."
 msgstr ""
 
-#: admin/partials/printah-admin-display.php:79
+#: admin/partials/printah-admin-display.php:76
 msgid "Choose non-overlapping shortcuts for Printah and the built-in WordPress palette."
 msgstr ""
 
@@ -140,7 +140,7 @@ msgstr ""
 msgid "Content search failed. Try again."
 msgstr ""
 
-#: admin/partials/printah-admin-display.php:173
+#: admin/partials/printah-admin-display.php:162
 msgid "Control the bottom-center quick launcher and the default WordPress admin bar."
 msgstr ""
 
@@ -164,7 +164,7 @@ msgstr ""
 msgid "Create new"
 msgstr ""
 
-#: admin/partials/printah-admin-display.php:383
+#: admin/partials/printah-admin-display.php:362
 msgid "Custom Elementor widgets and page drafts"
 msgstr ""
 
@@ -184,7 +184,7 @@ msgstr ""
 msgid "Default post format and category"
 msgstr ""
 
-#: admin/partials/printah-admin-display.php:282 admin/partials/printah-admin-display.php:314
+#: admin/partials/printah-admin-display.php:271 admin/partials/printah-admin-display.php:296
 msgid "Detected"
 msgstr ""
 
@@ -192,7 +192,7 @@ msgstr ""
 msgid "Discussion Settings"
 msgstr ""
 
-#: admin/partials/printah-admin-display.php:183
+#: admin/partials/printah-admin-display.php:185
 msgid "Display the floating pill for View Site, Comments, New, and Profile actions."
 msgstr ""
 
@@ -216,11 +216,11 @@ msgstr ""
 msgid "Edit your profile and password"
 msgstr ""
 
-#: admin/partials/printah-admin-display.php:58 src/components/CommandPalette.tsx:71
+#: admin/partials/printah-admin-display.php:50 src/components/CommandPalette.tsx:71
 msgid "Elementor"
 msgstr ""
 
-#: admin/partials/printah-admin-display.php:279
+#: admin/partials/printah-admin-display.php:253
 msgid "Elementor Commands"
 msgstr ""
 
@@ -240,11 +240,11 @@ msgstr ""
 msgid "Elementor Tools"
 msgstr ""
 
-#: admin/partials/printah-admin-display.php:51
+#: admin/partials/printah-admin-display.php:43
 msgid "Environment status"
 msgstr ""
 
-#: admin/partials/printah-admin-display.php:346
+#: admin/partials/printah-admin-display.php:321
 msgid "Essential keys while navigating inside the palette."
 msgstr ""
 
@@ -272,15 +272,15 @@ msgstr ""
 msgid "Exit to WordPress Dashboard"
 msgstr ""
 
-#: admin/partials/printah-admin-display.php:385
+#: admin/partials/printah-admin-display.php:364
 msgid "Fast AI post drafting directly in WordPress"
 msgstr ""
 
-#: admin/partials/printah-admin-display.php:46
+#: admin/partials/printah-admin-display.php:39
 msgid "Fast command palette and floating navigation across WordPress admin and editors."
 msgstr ""
 
-#: admin/partials/printah-admin-display.php:172
+#: admin/partials/printah-admin-display.php:158
 msgid "Floating Pill & Toolbar"
 msgstr ""
 
@@ -288,15 +288,15 @@ msgstr ""
 msgid "General Settings"
 msgstr ""
 
-#: admin/partials/printah-admin-display.php:384
+#: admin/partials/printah-admin-display.php:363
 msgid "Guided WooCommerce product creation and sales analysis"
 msgstr ""
 
-#: admin/partials/printah-admin-display.php:213
+#: admin/partials/printah-admin-display.php:208
 msgid "Hide the top admin bar in WP Admin when the Printah floating pill is active."
 msgstr ""
 
-#: admin/partials/printah-admin-display.php:210
+#: admin/partials/printah-admin-display.php:192
 msgid "Hide WordPress Toolbar"
 msgstr ""
 
@@ -308,15 +308,15 @@ msgstr ""
 msgid "Image sizes and upload organization"
 msgstr ""
 
-#: admin/partials/printah-admin-display.php:286
+#: admin/partials/printah-admin-display.php:267
 msgid "Include Elementor templates, tools, settings, and quick \"Edit with Elementor\" actions."
 msgstr ""
 
-#: admin/partials/printah-admin-display.php:318
+#: admin/partials/printah-admin-display.php:292
 msgid "Include store commands and product search for Orders, Products, Coupons, and Analytics."
 msgstr ""
 
-#: admin/partials/printah-admin-display.php:359
+#: admin/partials/printah-admin-display.php:334
 msgid "Item Actions"
 msgstr ""
 
@@ -324,11 +324,11 @@ msgstr ""
 msgid "Keep either the floating pill or the WordPress admin toolbar visible so quick navigation stays accessible."
 msgstr ""
 
-#: admin/partials/printah-admin-display.php:117
+#: admin/partials/printah-admin-display.php:120
 msgid "Keep the native WordPress palette available alongside Printah."
 msgstr ""
 
-#: admin/partials/printah-admin-display.php:78
+#: admin/partials/printah-admin-display.php:72
 msgid "Keyboard Shortcuts"
 msgstr ""
 
@@ -344,7 +344,7 @@ msgstr ""
 msgid "Leave the Site Editor and return to WP Admin"
 msgstr ""
 
-#: admin/partials/printah-admin-display.php:251
+#: admin/partials/printah-admin-display.php:233
 msgid "Live Content Search"
 msgstr ""
 
@@ -438,7 +438,7 @@ msgstr ""
 msgid "More actions for %s"
 msgstr ""
 
-#: admin/partials/printah-admin-display.php:363
+#: admin/partials/printah-admin-display.php:338
 msgid "Navigate List"
 msgstr ""
 
@@ -462,7 +462,7 @@ msgstr ""
 msgid "No matching commands"
 msgstr ""
 
-#: admin/partials/printah-admin-display.php:282 admin/partials/printah-admin-display.php:314
+#: admin/partials/printah-admin-display.php:271 admin/partials/printah-admin-display.php:296
 msgid "Not active"
 msgstr ""
 
@@ -488,7 +488,7 @@ msgstr ""
 msgid "Open Page"
 msgstr ""
 
-#: admin/partials/printah-admin-display.php:351
+#: admin/partials/printah-admin-display.php:326
 msgid "Open Palette"
 msgstr ""
 
@@ -502,7 +502,7 @@ msgstr ""
 msgid "Open the WordPress Theme Customizer"
 msgstr ""
 
-#: admin/partials/printah-admin-display.php:89
+#: admin/partials/printah-admin-display.php:101
 msgid "Opens Printah from anywhere inside WP Admin and editors."
 msgstr ""
 
@@ -530,7 +530,7 @@ msgstr ""
 msgid "Preview Page"
 msgstr ""
 
-#: admin/partials/printah-admin-display.php:42
+#: admin/partials/printah-admin-display.php:35
 msgid "Printah"
 msgstr ""
 
@@ -538,11 +538,11 @@ msgstr ""
 msgid "Printah Command Palette"
 msgstr ""
 
-#: admin/partials/printah-admin-display.php:86
+#: admin/partials/printah-admin-display.php:83
 msgid "Printah Palette Shortcut"
 msgstr ""
 
-#: admin/partials/printah-admin-display.php:376
+#: admin/partials/printah-admin-display.php:351
 msgid "Printah Pro"
 msgstr ""
 
@@ -566,7 +566,7 @@ msgstr ""
 msgid "Profile"
 msgstr ""
 
-#: admin/partials/printah-admin-display.php:345
+#: admin/partials/printah-admin-display.php:317
 msgid "Quick Reference"
 msgstr ""
 
@@ -582,11 +582,11 @@ msgstr ""
 msgid "Regenerate CSS, sync library, and utilities"
 msgstr ""
 
-#: admin/partials/printah-admin-display.php:377
+#: admin/partials/printah-admin-display.php:353
 msgid "Roadmap"
 msgstr ""
 
-#: admin/partials/printah-admin-display.php:367
+#: admin/partials/printah-admin-display.php:342
 msgid "Run / Close"
 msgstr ""
 
@@ -594,11 +594,11 @@ msgstr ""
 msgid "Sales reports, revenue, and store metrics"
 msgstr ""
 
-#: admin/partials/printah-admin-display.php:396
+#: admin/partials/printah-admin-display.php:307
 msgid "Save Settings"
 msgstr ""
 
-#: admin/partials/printah-admin-display.php:243
+#: admin/partials/printah-admin-display.php:222
 msgid "Search & Integrations"
 msgstr ""
 
@@ -618,7 +618,7 @@ msgstr ""
 msgid "Search and install new plugins"
 msgstr ""
 
-#: admin/partials/printah-admin-display.php:254
+#: admin/partials/printah-admin-display.php:246
 msgid "Search posts, pages, products, and templates when typing 3 or more characters."
 msgstr ""
 
@@ -630,7 +630,7 @@ msgstr ""
 msgid "Search Results"
 msgstr ""
 
-#: admin/partials/printah-admin-display.php:355
+#: admin/partials/printah-admin-display.php:330
 msgid "Search Trigger"
 msgstr ""
 
@@ -650,7 +650,7 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: admin/partials/printah-admin-display.php:180
+#: admin/partials/printah-admin-display.php:169
 msgid "Show Floating Pill"
 msgstr ""
 
@@ -706,7 +706,7 @@ msgstr ""
 msgid "Try another keyword."
 msgstr ""
 
-#: admin/partials/printah-admin-display.php:244
+#: admin/partials/printah-admin-display.php:226
 msgid "Tune live content indexing and plugin command modules."
 msgstr ""
 
@@ -722,7 +722,7 @@ msgstr ""
 msgid "URL structure for posts and pages"
 msgstr ""
 
-#: admin/partials/printah-admin-display.php:144
+#: admin/partials/printah-admin-display.php:145
 msgid "Used when the built-in WordPress Command Palette is active."
 msgstr ""
 
@@ -762,7 +762,7 @@ msgstr ""
 msgid "Visit"
 msgstr ""
 
-#: admin/class-printah-commands.php:726 admin/partials/printah-admin-display.php:62 src/components/CommandPalette.tsx:72
+#: admin/class-printah-commands.php:726 admin/partials/printah-admin-display.php:54 src/components/CommandPalette.tsx:72
 msgid "WooCommerce"
 msgstr ""
 
@@ -770,7 +770,7 @@ msgstr ""
 msgid "WooCommerce Analytics"
 msgstr ""
 
-#: admin/partials/printah-admin-display.php:311
+#: admin/partials/printah-admin-display.php:278
 msgid "WooCommerce Commands"
 msgstr ""
 
@@ -794,11 +794,11 @@ msgstr ""
 msgid "WooCommerce Settings"
 msgstr ""
 
-#: admin/partials/printah-admin-display.php:54
+#: admin/partials/printah-admin-display.php:46
 msgid "WordPress"
 msgstr ""
 
-#: admin/partials/printah-admin-display.php:114
+#: admin/partials/printah-admin-display.php:107
 msgid "WordPress Command Palette"
 msgstr ""
 
@@ -808,7 +808,7 @@ msgstr ""
 msgid "WordPress Command Palette (%s)"
 msgstr ""
 
-#: admin/partials/printah-admin-display.php:141
+#: admin/partials/printah-admin-display.php:127
 msgid "WordPress Palette Shortcut"
 msgstr ""
 

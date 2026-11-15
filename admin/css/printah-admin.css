@@ -1,481 +1,221 @@
 /**
- * Printah Admin Dashboard — Liquid-Glass Dark UI matching Command Palette tokens.
+ * Printah Admin Settings — Native WordPress Admin UI layout and polish.
  */
 
-body.toplevel_page_printah #wpcontent,
-body.toplevel_page_printah #wpbody-content {
-	background-color: #08090d;
-	color-scheme: dark;
-}
-
-body.toplevel_page_printah #wpfooter {
-	color: #7d8597;
-}
-
-body.toplevel_page_printah #wpfooter a {
-	color: #b4b8c4;
-}
-
-body.toplevel_page_printah #wpbody-content {
-	padding-bottom: 48px;
-}
-
 .printah-settings {
-	--printah-ink: #08090d;
-	--printah-panel: #0d1017;
-	--printah-surface: rgb(255 255 255 / 0.04);
-	--printah-surface-strong: rgb(255 255 255 / 0.075);
-	--printah-line: rgb(255 255 255 / 0.09);
-	--printah-line-strong: rgb(255 255 255 / 0.16);
-	--printah-text: #f5f7fc;
-	--printah-muted: #b4b8c4;
-	--printah-dim: #7c8496;
-	--printah-accent: #3858e9;
-	--printah-accent-bright: #5c7aff;
-	--printah-accent-soft: rgb(56 88 233 / 0.18);
-	--printah-success: #34d399;
-	--printah-danger: #f87171;
-	--printah-danger-bg: rgb(248 113 113 / 0.12);
-	--printah-danger-line: rgb(248 113 113 / 0.32);
-
-	position: relative;
-	margin: 20px 20px 0 0;
-	padding: 28px 30px 32px;
-	border-radius: 20px;
-	border: 1px solid var(--printah-line);
-	background:
-		radial-gradient(640px 260px at 14% -6%, rgb(56 88 233 / 0.18), transparent 70%),
-		radial-gradient(520px 240px at 88% 0%, rgb(92 122 255 / 0.1), transparent 72%),
-		linear-gradient(180deg, #0d1018 0%, #08090d 100%);
-	color: var(--printah-text);
-	box-shadow:
-		0 24px 60px rgb(0 0 0 / 0.55),
-		inset 0 1px 0 rgb(255 255 255 / 0.08);
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, sans-serif;
-	box-sizing: border-box;
+	max-width: 1120px;
 }
 
-.printah-settings *,
-.printah-settings *::before,
-.printah-settings *::after {
-	box-sizing: border-box;
-}
-
-.printah-shell {
-	max-width: 980px;
-	margin: 0 auto;
-}
-
-/* WordPress core settings notices inside our dark frame */
-.printah-settings .notice,
-.printah-settings div.updated,
-.printah-settings div.error {
-	margin: 0 0 18px;
-	padding: 12px 16px;
-	border-radius: 12px;
-	border: 1px solid var(--printah-line-strong);
-	border-left-width: 3px;
-	background: rgb(255 255 255 / 0.05);
-	color: var(--printah-text);
-	box-shadow: none;
-}
-
-.printah-settings .notice-success,
-.printah-settings div.updated {
-	border-color: rgb(52 211 153 / 0.35);
-	border-left-color: var(--printah-success);
-	background: rgb(52 211 153 / 0.1);
-}
-
-.printah-settings .notice-error,
-.printah-settings div.error {
-	border-color: var(--printah-danger-line);
-	border-left-color: var(--printah-danger);
-	background: var(--printah-danger-bg);
-}
-
-.printah-settings .notice p {
-	margin: 0;
-	font-size: 13px;
-	line-height: 1.5;
-	color: var(--printah-text);
-}
-
-.printah-settings .notice-dismiss::before {
-	color: var(--printah-muted);
-}
-
-/* Hero header */
-.printah-hero {
+.printah-header {
 	display: flex;
-	align-items: center;
+	align-items: flex-start;
 	justify-content: space-between;
 	flex-wrap: wrap;
-	gap: 18px;
-	padding-bottom: 22px;
-	margin-bottom: 22px;
-	border-bottom: 1px solid var(--printah-line);
+	gap: 12px 20px;
+	margin-top: 6px;
 }
 
-.printah-hero__brand {
+.printah-header__row {
 	display: flex;
 	align-items: center;
-	gap: 14px;
+	gap: 8px;
 }
 
-.printah-hero__mark {
-	display: grid;
-	place-items: center;
-	width: 44px;
-	height: 44px;
-	border-radius: 13px;
-	background: linear-gradient(135deg, rgb(56 88 233 / 0.32), rgb(92 122 255 / 0.14));
-	border: 1px solid rgb(92 122 255 / 0.38);
-	color: #dbe4ff;
-	box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.22);
-	flex-shrink: 0;
-}
-
-.printah-hero__title-row {
-	display: flex;
-	align-items: center;
-	gap: 10px;
-}
-
-.printah-hero h1 {
-	margin: 0;
-	padding: 0;
-	font-size: 22px;
-	font-weight: 650;
-	line-height: 1.2;
-	letter-spacing: -0.02em;
-	color: var(--printah-text);
+.printah-header .description {
+	margin: 4px 0 0;
 }
 
 .printah-version {
-	display: inline-flex;
-	align-items: center;
-	height: 22px;
-	padding: 0 8px;
+	display: inline-block;
+	padding: 2px 8px;
+	border: 1px solid #c3c4c7;
 	border-radius: 999px;
-	border: 1px solid var(--printah-line-strong);
-	background: var(--printah-surface);
-	color: var(--printah-muted);
+	background: #ffffff;
+	color: #50575e;
 	font-size: 11px;
 	font-weight: 600;
-	letter-spacing: 0.02em;
-}
-
-.printah-hero__subtitle {
-	margin: 4px 0 0;
-	font-size: 13px;
-	line-height: 1.45;
-	color: var(--printah-muted);
+	line-height: 1.5;
 }
 
 .printah-status-group {
 	display: flex;
 	flex-wrap: wrap;
-	gap: 8px;
+	gap: 6px;
+	padding-top: 4px;
 }
 
 .printah-status-pill {
 	display: inline-flex;
 	align-items: center;
-	gap: 7px;
-	height: 28px;
-	padding: 0 11px;
+	gap: 6px;
+	padding: 4px 10px;
+	border: 1px solid #c3c4c7;
 	border-radius: 999px;
-	border: 1px solid var(--printah-line);
-	background: var(--printah-surface);
+	background: #ffffff;
+	color: #50575e;
 	font-size: 12px;
 	font-weight: 500;
-	color: var(--printah-muted);
+	line-height: 1.4;
 }
 
 .printah-status-dot {
 	width: 7px;
 	height: 7px;
 	border-radius: 50%;
-	background: var(--printah-dim);
+	background: #a7aaad;
 }
 
 .printah-status-pill.is-active {
-	border-color: rgb(52 211 153 / 0.28);
-	background: rgb(52 211 153 / 0.08);
-	color: #d9f9ec;
+	border-color: #b8e6bf;
+	background: #edfaef;
+	color: #005c12;
 }
 
 .printah-status-pill.is-active .printah-status-dot {
-	background: var(--printah-success);
-	box-shadow: 0 0 8px rgb(52 211 153 / 0.65);
+	background: #00a32a;
 }
 
-/* Inline alert */
-.printah-alert {
-	margin: 0 0 18px;
-	padding: 12px 16px;
-	border-radius: 12px;
-	border: 1px solid var(--printah-danger-line);
-	background: var(--printah-danger-bg);
-	color: #fecaca;
-	font-size: 13px;
-	line-height: 1.45;
+.printah-inline-notice {
+	margin: 14px 0 0;
+	padding: 10px 12px;
 }
 
-.printah-alert[hidden] {
+.printah-inline-notice[hidden] {
 	display: none;
 }
 
-/* Layout grid */
-.printah-grid {
+/* 2-column responsive layout */
+.printah-layout {
 	display: grid;
-	grid-template-columns: minmax(0, 1.55fr) minmax(260px, 0.95fr);
-	gap: 18px;
+	grid-template-columns: minmax(0, 1.75fr) minmax(260px, 0.9fr);
+	gap: 20px;
 	align-items: start;
+	margin-top: 16px;
 }
 
-.printah-column {
+.printah-layout__main,
+.printah-layout__side {
 	display: flex;
 	flex-direction: column;
 	gap: 16px;
 }
 
-/* Cards */
-.printah-card {
-	padding: 20px;
-	border-radius: 16px;
-	border: 1px solid var(--printah-line);
-	background:
-		linear-gradient(180deg, rgb(255 255 255 / 0.055) 0%, rgb(255 255 255 / 0.025) 100%);
-	box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.06);
+/* Native WP postbox refinements */
+.printah-postbox {
+	margin-bottom: 0;
 }
 
-.printah-card--pro {
-	border-color: rgb(92 122 255 / 0.24);
-	background:
-		radial-gradient(280px 140px at 100% 0%, rgb(56 88 233 / 0.16), transparent 72%),
-		linear-gradient(180deg, rgb(255 255 255 / 0.05) 0%, rgb(255 255 255 / 0.025) 100%);
+.printah-postbox .postbox-header {
+	padding: 0 14px;
 }
 
-.printah-card__header {
-	margin-bottom: 14px;
+.printah-postbox .postbox-header .hndle {
+	padding: 10px 0;
+	font-size: 14px;
+	cursor: default;
 }
 
-.printah-card__header h2 {
+.printah-postbox .inside {
 	margin: 0;
-	font-size: 14.5px;
-	font-weight: 600;
-	line-height: 1.3;
-	color: var(--printah-text);
+	padding: 12px 14px 14px;
 }
 
-.printah-card__header p {
-	margin: 4px 0 0;
-	font-size: 12.5px;
-	line-height: 1.45;
-	color: var(--printah-muted);
+.printah-section-desc {
+	margin: 0 0 8px;
 }
 
-/* Field rows */
-.printah-field-list {
-	display: flex;
-	flex-direction: column;
+.printah-form-table {
+	margin-top: 0;
 }
 
-.printah-field {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	gap: 18px;
-	padding: 13px 0;
-	border-top: 1px solid rgb(255 255 255 / 0.065);
+.printah-form-table th {
+	width: 210px;
+	padding: 14px 16px 14px 0;
+	vertical-align: top;
 }
 
-.printah-field:first-child {
-	padding-top: 4px;
-	border-top: 0;
+.printah-form-table td {
+	padding: 12px 0;
+	vertical-align: top;
 }
 
-.printah-field:last-child {
-	padding-bottom: 2px;
+.printah-form-table tr + tr {
+	border-top: 1px solid #f0f0f1;
 }
 
-.printah-field.is-disabled {
-	opacity: 0.48;
+.printah-form-table tr.is-disabled {
+	opacity: 0.55;
 }
 
-.printah-field__info {
-	min-width: 0;
-	flex: 1 1 auto;
+.printah-form-table select {
+	min-width: 140px;
 }
 
-.printah-field__label-row {
-	display: flex;
-	align-items: center;
-	flex-wrap: wrap;
+.printah-form-table select:focus-visible,
+.printah-form-table input[type="checkbox"]:focus-visible {
+	outline: 2px solid var(--wp-admin-theme-color, #2271b1);
+	outline-offset: 2px;
+}
+
+.printah-form-table [aria-invalid="true"],
+.printah-form-table select:user-invalid {
+	border-color: #d63638;
+	box-shadow: 0 0 0 1px #d63638;
+}
+
+.printah-checkbox-label {
+	display: inline-flex;
+	align-items: flex-start;
 	gap: 8px;
-}
-
-.printah-field__label {
-	display: inline-block;
-	font-size: 13.5px;
-	font-weight: 550;
-	color: var(--printah-text);
+	color: #2c3338;
+	line-height: 1.5;
 	cursor: pointer;
 }
 
-.printah-field__hint {
-	margin: 3px 0 0;
-	font-size: 12px;
-	line-height: 1.45;
-	color: var(--printah-dim);
-}
-
-.printah-field__control {
+.printah-checkbox-label input[type="checkbox"] {
+	margin-top: 2px;
 	flex-shrink: 0;
 }
 
-/* Select inputs */
-.printah-select {
-	min-width: 124px;
-	height: 36px;
-	padding: 0 32px 0 12px;
-	border-radius: 10px;
-	border: 1px solid var(--printah-line-strong);
-	background-color: #131722;
-	color: var(--printah-text);
-	font-size: 13px;
-	font-weight: 600;
-	line-height: 1;
-	cursor: pointer;
-	transition: border-color 140ms ease, background-color 140ms ease, box-shadow 140ms ease;
-}
-
-.printah-select:hover:not(:disabled) {
-	border-color: rgb(255 255 255 / 0.28);
-	background-color: #181d2b;
-}
-
-.printah-select:focus-visible {
-	outline: 2px solid var(--printah-accent-bright);
-	outline-offset: 2px;
-	border-color: var(--printah-accent-bright);
-}
-
-.printah-select:disabled {
-	cursor: not-allowed;
-	opacity: 0.6;
-}
-
-.printah-select[aria-invalid="true"],
-.printah-select:user-invalid {
-	border-color: var(--printah-danger);
-	box-shadow: 0 0 0 3px rgb(248 113 113 / 0.18);
-}
-
-/* Accessible toggle switch */
-.printah-switch {
-	position: relative;
-	display: inline-flex;
-	align-items: center;
-	width: 44px;
-	height: 24px;
-	cursor: pointer;
-}
-
-.printah-switch__input {
-	position: absolute;
-	inset: 0;
-	width: 100%;
-	height: 100%;
-	margin: 0;
-	opacity: 0;
-	cursor: pointer;
-}
-
-.printah-switch__track {
-	position: relative;
+.printah-integration-row {
 	display: flex;
-	align-items: center;
-	width: 44px;
-	height: 24px;
-	padding: 2px;
-	border-radius: 999px;
-	border: 1px solid var(--printah-line-strong);
-	background: rgb(255 255 255 / 0.08);
-	transition: background-color 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: 12px;
 }
 
-.printah-switch__thumb {
-	width: 18px;
-	height: 18px;
-	border-radius: 50%;
-	background: #d7dce8;
-	box-shadow: 0 1px 3px rgb(0 0 0 / 0.4);
-	transform: translateX(0);
-	transition: transform 160ms cubic-bezier(0.22, 1, 0.36, 1), background-color 160ms ease;
-}
-
-.printah-switch__input:checked + .printah-switch__track {
-	border-color: rgb(92 122 255 / 0.7);
-	background: var(--printah-accent);
-}
-
-.printah-switch__input:checked + .printah-switch__track .printah-switch__thumb {
-	transform: translateX(20px);
-	background: #ffffff;
-}
-
-.printah-switch__input:focus-visible + .printah-switch__track {
-	outline: 2px solid var(--printah-accent-bright);
-	outline-offset: 2px;
-}
-
-.printah-switch__input[aria-invalid="true"] + .printah-switch__track {
-	border-color: var(--printah-danger);
-	box-shadow: 0 0 0 3px rgb(248 113 113 / 0.18);
-}
-
-/* Badges */
 .printah-badge {
 	display: inline-flex;
 	align-items: center;
-	height: 20px;
-	padding: 0 8px;
+	flex-shrink: 0;
+	padding: 2px 8px;
+	border: 1px solid #dcdcde;
 	border-radius: 999px;
-	border: 1px solid var(--printah-line);
-	background: var(--printah-surface);
+	background: #f6f7f7;
+	color: #50575e;
 	font-size: 11px;
 	font-weight: 600;
-	line-height: 1;
-	color: var(--printah-muted);
+	line-height: 1.5;
 }
 
 .printah-badge.is-ready {
-	border-color: rgb(52 211 153 / 0.3);
-	background: rgb(52 211 153 / 0.1);
-	color: #86efac;
-}
-
-.printah-badge.is-muted {
-	color: var(--printah-dim);
+	border-color: #b8e6bf;
+	background: #edfaef;
+	color: #005c12;
 }
 
 .printah-badge.is-pro {
-	border-color: rgb(92 122 255 / 0.4);
-	background: var(--printah-accent-soft);
-	color: #c7d4ff;
+	border-color: #c5d9ed;
+	background: #f0f6fc;
+	color: #135e96;
 }
 
-/* Field inline error */
 .printah-field-error {
 	margin: 10px 0 0;
-	padding: 9px 12px;
-	border-radius: 10px;
-	border: 1px solid var(--printah-danger-line);
-	background: var(--printah-danger-bg);
-	color: #fecaca;
+	padding: 8px 12px;
+	border-left: 4px solid #d63638;
+	background: #fcf0f1;
+	color: #8a2424;
 	font-size: 12.5px;
 	line-height: 1.45;
 }
@@ -484,12 +224,10 @@ body.toplevel_page_printah #wpbody-content {
 	display: none;
 }
 
-/* Sidebar guide */
+/* Quick reference list */
 .printah-guide-list {
-	margin: 0;
+	margin: 8px 0 0;
 	padding: 0;
-	display: flex;
-	flex-direction: column;
 }
 
 .printah-guide-item {
@@ -497,22 +235,22 @@ body.toplevel_page_printah #wpbody-content {
 	align-items: center;
 	justify-content: space-between;
 	gap: 12px;
-	padding: 10px 0;
-	border-top: 1px solid rgb(255 255 255 / 0.065);
+	padding: 8px 0;
+	border-top: 1px solid #f0f0f1;
 }
 
 .printah-guide-item:first-child {
-	padding-top: 2px;
 	border-top: 0;
+	padding-top: 2px;
 }
 
 .printah-guide-item:last-child {
-	padding-bottom: 2px;
+	padding-bottom: 0;
 }
 
 .printah-guide-item dt {
-	font-size: 12.5px;
-	color: var(--printah-muted);
+	color: #2c3338;
+	font-size: 13px;
 }
 
 .printah-guide-item dd {
@@ -530,168 +268,80 @@ body.toplevel_page_printah #wpbody-content {
 	align-items: center;
 	justify-content: center;
 	min-width: 24px;
-	height: 22px;
-	padding: 0 7px;
-	border-radius: 6px;
-	border: 1px solid var(--printah-line-strong);
-	background: rgb(255 255 255 / 0.07);
-	color: var(--printah-text);
+	padding: 2px 7px;
+	border: 1px solid #c3c4c7;
+	border-radius: 4px;
+	background: #f6f7f7;
+	box-shadow: inset 0 -1px 0 #dcdcde;
+	color: #2c3338;
 	font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 	font-size: 11px;
 	font-weight: 600;
-	line-height: 1;
-	box-shadow: inset 0 -1px 0 rgb(0 0 0 / 0.35);
+	line-height: 1.4;
 }
 
-/* Pro card */
-.printah-pro-title {
+/* Printah Pro roadmap postbox */
+.printah-postbox--pro {
+	border-left: 3px solid var(--wp-admin-theme-color, #2271b1);
+}
+
+.printah-postbox--pro .postbox-header {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	gap: 10px;
 }
 
 .printah-pro-list {
-	margin: 0;
+	margin: 8px 0 0 18px;
 	padding: 0;
-	list-style: none;
-	display: flex;
-	flex-direction: column;
-	gap: 9px;
+	list-style: disc;
+	color: #2c3338;
 }
 
-.printah-pro-list li {
-	position: relative;
-	padding-left: 16px;
-	font-size: 12.5px;
-	line-height: 1.45;
-	color: var(--printah-muted);
+.printah-pro-list li + li {
+	margin-top: 6px;
 }
 
-.printah-pro-list li::before {
-	content: "";
-	position: absolute;
-	left: 0;
-	top: 7px;
-	width: 5px;
-	height: 5px;
-	border-radius: 50%;
-	background: var(--printah-accent-bright);
-}
-
-/* Footer submit bar */
-.printah-footer {
+/* Submit bar */
+.printah-submit-bar {
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
 	flex-wrap: wrap;
-	gap: 14px;
-	margin-top: 20px;
-	padding: 16px 20px;
-	border-radius: 14px;
-	border: 1px solid var(--printah-line);
-	background: rgb(255 255 255 / 0.035);
+	gap: 12px;
+	padding-top: 4px;
 }
 
-.printah-footer__note {
-	margin: 0;
-	font-size: 12.5px;
-	color: var(--printah-dim);
-}
-
-.printah-submit {
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	height: 38px;
-	padding: 0 20px;
-	border-radius: 10px;
-	border: 1px solid rgb(255 255 255 / 0.16);
-	background: linear-gradient(180deg, #4b6bf2 0%, #3858e9 100%);
-	color: #ffffff;
-	font-size: 13px;
-	font-weight: 600;
-	line-height: 1;
-	cursor: pointer;
-	box-shadow:
-		0 6px 18px rgb(56 88 233 / 0.35),
-		inset 0 1px 0 rgb(255 255 255 / 0.22);
-	transition: transform 120ms ease, filter 120ms ease, box-shadow 120ms ease;
-}
-
-.printah-submit:hover {
-	filter: brightness(1.07);
-	box-shadow:
-		0 8px 22px rgb(56 88 233 / 0.45),
-		inset 0 1px 0 rgb(255 255 255 / 0.28);
-}
-
-.printah-submit:active {
-	transform: translateY(1px);
-}
-
-.printah-submit:focus-visible {
-	outline: 2px solid #ffffff;
-	outline-offset: 2px;
-}
-
-/* Responsive */
-@media (max-width: 860px) {
-	.printah-settings {
-		margin-right: 12px;
-		padding: 20px 18px 24px;
-	}
-
-	.printah-grid {
+@media (max-width: 960px) {
+	.printah-layout {
 		grid-template-columns: 1fr;
 	}
 }
 
-@media (max-width: 560px) {
-	.printah-field {
+@media (max-width: 782px) {
+	.printah-form-table th {
+		width: auto;
+		padding-bottom: 4px;
+	}
+
+	.printah-form-table td {
+		padding-top: 4px;
+	}
+
+	.printah-integration-row {
 		flex-direction: column;
-		align-items: flex-start;
-		gap: 10px;
-	}
-
-	.printah-select {
-		width: 100%;
-	}
-
-	.printah-footer {
-		flex-direction: column;
-		align-items: stretch;
-	}
-
-	.printah-submit {
-		width: 100%;
-	}
-}
-
-/* Reduced motion & forced colors accessibility */
-@media (prefers-reduced-motion: reduce) {
-	.printah-select,
-	.printah-switch__track,
-	.printah-switch__thumb,
-	.printah-submit {
-		transition: none;
+		gap: 6px;
 	}
 }
 
 @media (forced-colors: active) {
-	.printah-card,
-	.printah-select,
-	.printah-switch__track,
-	.printah-submit,
-	.printah-kbd,
+	.printah-status-pill,
 	.printah-badge,
-	.printah-status-pill {
+	.printah-kbd {
 		border-color: ButtonBorder;
 	}
 
-	.printah-select:focus-visible,
-	.printah-switch__input:focus-visible + .printah-switch__track,
-	.printah-submit:focus-visible {
+	.printah-form-table select:focus-visible,
+	.printah-form-table input[type="checkbox"]:focus-visible {
 		outline: 2px solid Highlight;
 	}
 }
