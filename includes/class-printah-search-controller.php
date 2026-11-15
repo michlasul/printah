@@ -7,6 +7,8 @@
 
 namespace Printah;
 
+use Printah\Admin\Printah_Settings;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
@@ -51,7 +53,7 @@ final class Printah_Search_Controller extends \WP_REST_Controller {
 					'q' => array(
 						'required'          => true,
 						'type'              => 'string',
-						'minLength'         => 2,
+						'minLength'         => 3,
 						'maxLength'         => 100,
 						'sanitize_callback' => 'sanitize_text_field',
 						'validate_callback' => 'rest_validate_request_arg',
@@ -80,9 +82,15 @@ final class Printah_Search_Controller extends \WP_REST_Controller {
 	 * @return \WP_REST_Response|\WP_Error REST response.
 	 */
 	public function get_items( $request ) {
+		$settings = Printah_Settings::get();
+
+		if ( empty( $settings['content_search_enabled'] ) ) {
+			return rest_ensure_response( array() );
+		}
+
 		$query_text = trim( sanitize_text_field( (string) $request->get_param( 'q' ) ) );
 
-		if ( 2 > preg_match_all( '/./u', $query_text ) ) {
+		if ( 3 > preg_match_all( '/./u', $query_text ) ) {
 			return rest_ensure_response( array() );
 		}
 
@@ -93,14 +101,16 @@ final class Printah_Search_Controller extends \WP_REST_Controller {
 		foreach ( $post_types as $post_type => $post_type_object ) {
 			$query = new \WP_Query(
 				array(
-					'post_type'           => $post_type,
-					'post_status'         => array( 'publish', 'future', 'draft', 'pending', 'private' ),
-					'posts_per_page'      => $per_type,
-					's'                   => $query_text,
-					'perm'                => 'editable',
-					'orderby'             => 'relevance',
-					'ignore_sticky_posts' => true,
-					'no_found_rows'       => true,
+					'post_type'              => $post_type,
+					'post_status'            => array( 'publish', 'future', 'draft', 'pending', 'private' ),
+					'posts_per_page'         => $per_type,
+					's'                      => $query_text,
+					'perm'                   => 'editable',
+					'orderby'                => 'relevance',
+					'ignore_sticky_posts'    => true,
+					'no_found_rows'          => true,
+					'update_post_meta_cache' => false,
+					'update_post_term_cache' => false,
 				)
 			);
 
@@ -153,6 +163,14 @@ final class Printah_Search_Controller extends \WP_REST_Controller {
 		);
 
 		unset( $registered['attachment'] );
+
+		$settings = Printah_Settings::get();
+		if ( empty( $settings['module_woocommerce_enabled'] ) ) {
+			unset( $registered['product'] );
+		}
+		if ( empty( $settings['module_elementor_enabled'] ) ) {
+			unset( $registered['elementor_library'] );
+		}
 
 		$post_type_slugs = array_keys( $registered );
 
@@ -229,7 +247,10 @@ final class Printah_Search_Controller extends \WP_REST_Controller {
 			}
 		}
 
+		$settings = Printah_Settings::get();
+
 		if (
+			! empty( $settings['module_elementor_enabled'] ) &&
 			did_action( 'elementor/loaded' ) &&
 			class_exists( '\\Elementor\\Plugin' ) &&
 			class_exists( '\\Elementor\\Utils' ) &&

@@ -9,6 +9,11 @@ export type ToolbarData = {
 	new: ToolbarLink[];
 	profile: ToolbarLink[];
 };
+export type PrintahContext = {
+	screen?: 'admin' | 'block-editor' | 'site-editor' | 'elementor-editor';
+	postType?: string;
+	postId?: number;
+};
 export type PrintahConfig = {
 	commands: Command[];
 	searchUrl: string;
@@ -18,8 +23,13 @@ export type PrintahConfig = {
 		native_palette_enabled: boolean;
 		native_shortcut: Shortcut;
 		hide_toolbar: boolean;
+		show_floating_pill?: boolean;
+		content_search_enabled?: boolean;
+		module_elementor_enabled?: boolean;
+		module_woocommerce_enabled?: boolean;
 	};
 	toolbar: ToolbarData;
+	context?: PrintahContext;
 };
 
 declare global {
@@ -28,10 +38,12 @@ declare global {
 		wp?: {
 			data?: {
 				select: ( store: string ) => {
-					getShortcutKeyCombination?: ( name: string ) => {
-						modifier: string;
-						character: string;
-					} | undefined;
+					getShortcutKeyCombination?: ( name: string ) =>
+						| {
+								modifier: string;
+								character: string;
+						  }
+						| undefined;
 				};
 				dispatch: ( store: string ) => {
 					unregisterShortcut: ( name: string ) => void;
@@ -48,10 +60,15 @@ export function shortcutLabel( shortcut: Shortcut ): string {
 	return `${ mac ? '⌘' : 'Ctrl' }${ shortcut.includes( 'shift' ) ? ' ⇧' : '' } ${ shortcut.slice( -1 ).toUpperCase() }`;
 }
 
-export function matchesShortcut( event: KeyboardEvent, shortcut: Shortcut ): boolean {
+export function matchesShortcut(
+	event: KeyboardEvent,
+	shortcut: Shortcut
+): boolean {
 	const mac = /Mac|iPhone|iPad/.test( navigator.userAgent );
 	return (
-		( mac ? event.metaKey && ! event.ctrlKey : event.ctrlKey && ! event.metaKey ) &&
+		( mac
+			? event.metaKey && ! event.ctrlKey
+			: event.ctrlKey && ! event.metaKey ) &&
 		! event.altKey &&
 		event.shiftKey === shortcut.includes( 'shift' ) &&
 		event.code === `Key${ shortcut.slice( -1 ).toUpperCase() }`

@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @package    Printah
  * @subpackage Printah/admin
- * @author     Davies Holmes
+ * @author     Ichlas
  */
 final class Printah_Admin {
 
@@ -83,6 +83,18 @@ final class Printah_Admin {
 		wp_enqueue_style( $this->plugin_name, plugins_url( 'admin/css/printah-admin.css', dirname( __DIR__ ) . '/printah.php' ), array(), filemtime( $style_file ), 'all' );
 		$script_file = __DIR__ . '/js/printah-admin.js';
 		wp_enqueue_script( $this->plugin_name . '-admin', plugins_url( 'admin/js/printah-admin.js', dirname( __DIR__ ) . '/printah.php' ), array(), filemtime( $script_file ), true );
+		wp_add_inline_script(
+			$this->plugin_name . '-admin',
+			'window.printahAdmin = ' . wp_json_encode(
+				array(
+					'messages' => array(
+						'shortcutConflict'    => __( 'Printah shortcut and WordPress Command Palette shortcut must be different.', 'printah' ),
+						'pillToolbarConflict' => __( 'Keep either the floating pill or the WordPress admin toolbar visible so quick navigation stays accessible.', 'printah' ),
+					),
+				)
+			) . ';',
+			'before'
+		);
 	}
 
 	/**
@@ -91,6 +103,69 @@ final class Printah_Admin {
 	 * @since    1.0.0
 	 */
 	public function enqueue_scripts() {
+		$context = array(
+			'screen' => 'admin',
+		);
+
+		$screen = function_exists( 'get_current_screen' ) ? get_current_screen() : null;
+
+		if ( $screen instanceof \WP_Screen ) {
+			if ( 'site-editor' === $screen->id || 'appearance_page_gutenberg-edit-site' === $screen->id ) {
+				$context['screen'] = 'site-editor';
+			} elseif ( method_exists( $screen, 'is_block_editor' ) && $screen->is_block_editor() ) {
+				$context['screen'] = 'block-editor';
+				if ( ! empty( $screen->post_type ) ) {
+					$context['postType'] = $screen->post_type;
+				}
+
+				global $post;
+				if ( $post instanceof \WP_Post && $post->ID > 0 ) {
+					$context['postId'] = (int) $post->ID;
+				} elseif ( isset( $_GET['post'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Reading current admin edit screen context only.
+					$context['postId'] = absint( wp_unslash( $_GET['post'] ) ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Reading current admin edit screen context only.
+				}
+			}
+		}
+
+		$this->enqueue_palette_assets( $context );
+	}
+
+	/**
+	 * Register the command palette assets inside the Elementor editor.
+	 *
+	 * @since    1.0.0
+	 */
+	public function enqueue_elementor_editor_scripts(): void {
+		if ( ! is_user_logged_in() ) {
+			return;
+		}
+
+		$post_id = 0;
+
+		if (
+			class_exists( '\\Elementor\\Plugin' ) &&
+			isset( \Elementor\Plugin::$instance->editor ) &&
+			\Elementor\Plugin::$instance->editor
+		) {
+			$post_id = absint( \Elementor\Plugin::$instance->editor->get_post_id() );
+		}
+
+		$this->enqueue_palette_assets(
+			array(
+				'screen' => 'elementor-editor',
+				'postId' => $post_id,
+			)
+		);
+	}
+
+	/**
+	 * Enqueue the Printah command palette bundle and localized config.
+	 *
+	 * @since    1.0.0
+	 * @param    array $context Optional screen context metadata.
+	 * @return   void
+	 */
+	private function enqueue_palette_assets( array $context = array() ): void {
 		$plugin_file = dirname( __DIR__ ) . '/printah.php';
 		$asset_file  = dirname( __DIR__ ) . '/build/index.asset.php';
 
@@ -118,7 +193,9 @@ final class Printah_Admin {
 			array( 'in_footer' => true )
 		);
 
-		$commands = $this->commands->get_commands();
+		wp_set_script_translations( $this->plugin_name, 'printah', dirname( __DIR__ ) . '/languages' );
+
+		$commands = $this->commands->get_commands( $context );
 		$settings = Printah_Settings::get();
 
 		wp_add_inline_script(
@@ -130,6 +207,7 @@ final class Printah_Admin {
 					'restNonce' => wp_create_nonce( 'wp_rest' ),
 					'settings'  => $settings,
 					'toolbar'   => $this->get_toolbar_items(),
+					'context'   => $context,
 				)
 			) . ';',
 			'before'

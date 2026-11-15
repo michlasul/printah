@@ -53,6 +53,8 @@ final class Printah_Commands {
 	public function register_hooks( Printah_Loader $loader ): void {
 		$this->loader = $loader;
 
+		$loader->add_filter( 'printah_commands', $this, 'register_elementor_editor_commands', 5, 2 );
+		$loader->add_filter( 'printah_commands', $this, 'register_editor_context_commands', 6, 2 );
 		$loader->add_filter( 'printah_commands', $this, 'register_core_commands', 10, 1 );
 		$loader->add_filter( 'printah_commands', $this, 'register_elementor_commands', 20, 1 );
 		$loader->add_filter( 'printah_commands', $this, 'register_woocommerce_commands', 30, 1 );
@@ -63,12 +65,15 @@ final class Printah_Commands {
 	/**
 	 * Build the list of commands for the current user.
 	 *
+	 * @param array $context Optional active screen context.
 	 * @return void
 	 */
-	protected function set_commands(): void {
+	protected function set_commands( array $context = array() ): void {
 		$commands = $this->hooks_registered
 			? array()
 			: array_merge(
+				$this->get_elementor_editor_commands( $context ),
+				$this->get_editor_context_commands( $context ),
 				$this->get_core_commands(),
 				$this->get_elementor_commands(),
 				$this->get_woocommerce_commands()
@@ -82,14 +87,37 @@ final class Printah_Commands {
 		 * Printah checks via current_user_can() before exposing it to the UI.
 		 *
 		 * @param array $commands List of command definitions.
+		 * @param array $context  Optional active screen context.
 		 */
-		$filtered = $this->loader->apply_filters( 'printah_commands', $commands );
+		$filtered = $this->loader->apply_filters( 'printah_commands', $commands, $context );
 
 		if ( ! is_array( $filtered ) ) {
 			$filtered = $commands;
 		}
 
 		$this->commands = $this->filter_commands_for_current_user( $filtered );
+	}
+
+	/**
+	 * Prepend contextual Elementor editor commands via the printah_commands filter.
+	 *
+	 * @param array $commands Existing command definitions.
+	 * @param array $context  Active screen context.
+	 * @return array
+	 */
+	public function register_elementor_editor_commands( array $commands, array $context = array() ): array {
+		return array_merge( $this->get_elementor_editor_commands( $context ), $commands );
+	}
+
+	/**
+	 * Prepend contextual Block Editor and Site Editor commands via the printah_commands filter.
+	 *
+	 * @param array $commands Existing command definitions.
+	 * @param array $context  Active screen context.
+	 * @return array
+	 */
+	public function register_editor_context_commands( array $commands, array $context = array() ): array {
+		return array_merge( $this->get_editor_context_commands( $context ), $commands );
 	}
 
 	/**
@@ -125,11 +153,229 @@ final class Printah_Commands {
 	/**
 	 * Returns all active commands for the current user.
 	 *
+	 * @param array $context Optional active screen context.
 	 * @return array
 	 */
-	public function get_commands(): array {
-		$this->set_commands();
+	public function get_commands( array $context = array() ): array {
+		$this->set_commands( $context );
 		return $this->commands;
+	}
+
+	/**
+	 * Returns contextual commands when Printah runs inside the Elementor editor.
+	 *
+	 * @param array $context Active screen context.
+	 * @return array
+	 */
+	private function get_elementor_editor_commands( array $context ): array {
+		if ( 'elementor-editor' !== ( $context['screen'] ?? '' ) ) {
+			return array();
+		}
+
+		$commands = array();
+		$post_id  = absint( $context['postId'] ?? 0 );
+		$post     = $post_id ? get_post( $post_id ) : null;
+
+		if ( $post instanceof \WP_Post ) {
+			$is_published = ( 'publish' === $post->post_status );
+			$view_url     = $is_published ? get_permalink( $post ) : get_preview_post_link( $post );
+			$post_title   = '' !== $post->post_title ? $post->post_title : __( '(no title)', 'printah' );
+
+			if ( $view_url && ( $is_published || current_user_can( 'edit_post', $post->ID ) ) ) {
+				$commands[] = array(
+					'id'          => 'elementor-view-live',
+					'label'       => $is_published ? __( 'View Live Page', 'printah' ) : __( 'Preview Page', 'printah' ),
+					'description' => sprintf(
+						/* translators: %s: current post or page title. */
+						__( 'Open "%s" on the site', 'printah' ),
+						$post_title
+					),
+					'keywords'    => array( 'view', 'live', 'preview', 'site', 'frontend', 'elementor' ),
+					'url'         => esc_url_raw( $view_url ),
+					'category'    => 'elementor',
+					'capability'  => 'read',
+				);
+			}
+
+			$edit_url = get_edit_post_link( $post->ID, 'raw' );
+
+			if ( $edit_url && current_user_can( 'edit_post', $post->ID ) ) {
+				$commands[] = array(
+					'id'          => 'elementor-exit-to-editor',
+					'label'       => __( 'Edit in WordPress Editor', 'printah' ),
+					'description' => __( 'Exit Elementor and open this content in WordPress', 'printah' ),
+					'keywords'    => array( 'exit', 'wordpress', 'gutenberg', 'block editor', 'classic editor', 'back' ),
+					'url'         => esc_url_raw( $edit_url ),
+					'category'    => 'elementor',
+					'capability'  => 'read',
+				);
+			}
+
+			$type_object = get_post_type_object( $post->post_type );
+
+			if (
+				$type_object instanceof \WP_Post_Type &&
+				$type_object->show_ui &&
+				'elementor_library' !== $post->post_type &&
+				! empty( $type_object->cap->edit_posts )
+			) {
+				$commands[] = array(
+					'id'          => 'elementor-all-posts',
+					'label'       => sprintf(
+						/* translators: %s: plural post type name. */
+						__( 'All %s', 'printah' ),
+						$type_object->labels->name
+					),
+					'description' => __( 'Exit Elementor to the content list', 'printah' ),
+					'keywords'    => array( 'all', 'list', 'pages', 'posts', 'exit', strtolower( $type_object->labels->name ) ),
+					'url'         => admin_url( 'edit.php' . ( 'post' === $post->post_type ? '' : '?post_type=' . $post->post_type ) ),
+					'category'    => 'elementor',
+					'capability'  => $type_object->cap->edit_posts,
+				);
+			}
+		}
+
+		$commands[] = array(
+			'id'          => 'elementor-exit-dashboard',
+			'label'       => __( 'Exit to WordPress Dashboard', 'printah' ),
+			'description' => __( 'Leave Elementor and return to the WP Admin dashboard', 'printah' ),
+			'keywords'    => array( 'exit', 'dashboard', 'home', 'admin', 'leave', 'wordpress' ),
+			'url'         => admin_url(),
+			'category'    => 'elementor',
+			'capability'  => 'read',
+		);
+
+		return $commands;
+	}
+
+	/**
+	 * Returns contextual commands when Printah runs inside the Block Editor or Site Editor.
+	 *
+	 * @param array $context Active screen context.
+	 * @return array
+	 */
+	private function get_editor_context_commands( array $context ): array {
+		$screen = $context['screen'] ?? '';
+
+		if ( 'site-editor' === $screen ) {
+			return array(
+				array(
+					'id'          => 'site-editor-pages',
+					'label'       => __( 'Manage Pages', 'printah' ),
+					'description' => __( 'Exit Site Editor and open Pages list', 'printah' ),
+					'keywords'    => array( 'site editor', 'pages', 'list', 'exit' ),
+					'url'         => admin_url( 'edit.php?post_type=page' ),
+					'category'    => 'konten',
+					'capability'  => 'edit_pages',
+				),
+				array(
+					'id'          => 'site-editor-themes',
+					'label'       => __( 'Switch Themes', 'printah' ),
+					'description' => __( 'Exit Site Editor and manage installed themes', 'printah' ),
+					'keywords'    => array( 'site editor', 'themes', 'appearance', 'exit' ),
+					'url'         => admin_url( 'themes.php' ),
+					'category'    => 'tampilan',
+					'capability'  => 'switch_themes',
+				),
+				array(
+					'id'          => 'site-editor-dashboard',
+					'label'       => __( 'Back to Dashboard', 'printah' ),
+					'description' => __( 'Leave the Site Editor and return to WP Admin', 'printah' ),
+					'keywords'    => array( 'site editor', 'dashboard', 'exit', 'home', 'admin' ),
+					'url'         => admin_url(),
+					'category'    => 'utama',
+					'capability'  => 'read',
+				),
+			);
+		}
+
+		if ( 'block-editor' !== $screen ) {
+			return array();
+		}
+
+		$commands  = array();
+		$post_id   = absint( $context['postId'] ?? 0 );
+		$post      = $post_id ? get_post( $post_id ) : null;
+		$post_type = is_string( $context['postType'] ?? null ) ? sanitize_key( $context['postType'] ) : '';
+
+		if ( $post instanceof \WP_Post ) {
+			$post_type    = $post->post_type;
+			$is_published = ( 'publish' === $post->post_status );
+			$view_url     = $is_published ? get_permalink( $post ) : get_preview_post_link( $post );
+			$post_title   = '' !== $post->post_title ? $post->post_title : __( '(no title)', 'printah' );
+
+			if ( $view_url && ( $is_published || current_user_can( 'edit_post', $post->ID ) ) ) {
+				$commands[] = array(
+					'id'          => 'block-editor-view-live',
+					'label'       => $is_published ? __( 'View Live Content', 'printah' ) : __( 'Preview Content', 'printah' ),
+					'description' => sprintf(
+						/* translators: %s: current post or page title. */
+						__( 'Open "%s" on the site', 'printah' ),
+						$post_title
+					),
+					'keywords'    => array( 'view', 'live', 'preview', 'site', 'gutenberg', 'block editor' ),
+					'url'         => esc_url_raw( $view_url ),
+					'category'    => 'konten',
+					'capability'  => 'read',
+				);
+			}
+
+			$settings = Printah_Settings::get();
+			if (
+				! empty( $settings['module_elementor_enabled'] ) &&
+				did_action( 'elementor/loaded' ) &&
+				class_exists( '\\Elementor\\Plugin' ) &&
+				class_exists( '\\Elementor\\Utils' ) &&
+				\Elementor\Utils::is_post_support( $post->ID )
+			) {
+				$document = \Elementor\Plugin::$instance->documents->get( $post->ID );
+				if ( $document && $document->is_editable_by_current_user() ) {
+					$elementor_url = $document->get_edit_url();
+					if ( $elementor_url ) {
+						$commands[] = array(
+							'id'          => 'block-editor-edit-elementor',
+							'label'       => __( 'Edit with Elementor', 'printah' ),
+							'description' => __( 'Switch from Block Editor to Elementor canvas', 'printah' ),
+							'keywords'    => array( 'elementor', 'edit with elementor', 'builder', 'switch' ),
+							'url'         => esc_url_raw( $elementor_url ),
+							'category'    => 'elementor',
+							'capability'  => 'read',
+						);
+					}
+				}
+			}
+		}
+
+		if ( '' !== $post_type ) {
+			$type_object = get_post_type_object( $post_type );
+			if ( $type_object instanceof \WP_Post_Type && $type_object->show_ui && ! empty( $type_object->cap->edit_posts ) ) {
+				$commands[] = array(
+					'id'          => 'block-editor-all-items',
+					'label'       => sprintf(
+						/* translators: %s: plural post type name. */
+						__( 'All %s', 'printah' ),
+						$type_object->labels->name
+					),
+					'description' => __( 'Exit the editor to the content list', 'printah' ),
+					'keywords'    => array( 'all', 'list', 'exit', strtolower( $type_object->labels->name ) ),
+					'url'         => admin_url( 'edit.php' . ( 'post' === $post_type ? '' : '?post_type=' . $post_type ) ),
+					'category'    => 'konten',
+					'capability'  => $type_object->cap->edit_posts,
+				);
+			}
+		}
+
+		$commands[] = array(
+			'id'          => 'block-editor-dashboard',
+			'label'       => __( 'Back to Dashboard', 'printah' ),
+			'description' => __( 'Leave the Block Editor and return to WP Admin', 'printah' ),
+			'keywords'    => array( 'dashboard', 'exit', 'home', 'admin' ),
+			'url'         => admin_url(),
+			'category'    => 'utama',
+			'capability'  => 'read',
+		);
+
+		return $commands;
 	}
 
 	/**
@@ -384,6 +630,15 @@ final class Printah_Commands {
 					'category'    => 'pengaturan',
 					'capability'  => 'manage_privacy_options',
 				),
+				array(
+					'id'          => 'printah-settings',
+					'label'       => __( 'Printah Settings', 'printah' ),
+					'description' => __( 'Configure Printah shortcuts, floating pill, and modules', 'printah' ),
+					'keywords'    => array( 'printah', 'command palette', 'shortcuts', 'floating pill', 'settings', 'preferences' ),
+					'url'         => admin_url( 'admin.php?page=printah' ),
+					'category'    => 'pengaturan',
+					'capability'  => 'manage_options',
+				),
 			)
 		);
 
@@ -396,6 +651,11 @@ final class Printah_Commands {
 	 * @return array
 	 */
 	private function get_elementor_commands(): array {
+		$settings = Printah_Settings::get();
+		if ( empty( $settings['module_elementor_enabled'] ) ) {
+			return array();
+		}
+
 		if ( ! did_action( 'elementor/loaded' ) && ! defined( 'ELEMENTOR_VERSION' ) ) {
 			return array();
 		}
@@ -451,6 +711,11 @@ final class Printah_Commands {
 	 * @return array
 	 */
 	private function get_woocommerce_commands(): array {
+		$settings = Printah_Settings::get();
+		if ( empty( $settings['module_woocommerce_enabled'] ) ) {
+			return array();
+		}
+
 		if ( ! class_exists( 'WooCommerce' ) ) {
 			return array();
 		}

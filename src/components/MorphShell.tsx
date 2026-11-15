@@ -1,5 +1,5 @@
 import { useEffect, useLayoutEffect, useRef } from '@wordpress/element';
-import { animate } from 'animejs';
+import { animate, createSpring } from 'animejs';
 import styles from './FloatingToolbar.module.css';
 
 type MorphShellProps = {
@@ -13,6 +13,14 @@ type MorphShellProps = {
 	dynamicHeight?: boolean;
 	children: React.ReactNode;
 };
+
+function clearEffects( targets: HTMLElement[] ) {
+	targets.forEach( ( target ) => {
+		target.style.removeProperty( 'transform' );
+		target.style.removeProperty( 'filter' );
+		target.style.removeProperty( 'will-change' );
+	} );
+}
 
 function getFadeTargets( content: HTMLElement ) {
 	const header = content.querySelector< HTMLElement >(
@@ -72,10 +80,7 @@ function MorphShell( {
 			'--printah-popup-width',
 			`${ clampedWidth }px`
 		);
-		const rawHeight = Math.max(
-			content.offsetHeight,
-			content.scrollHeight
-		);
+		const rawHeight = content.offsetHeight;
 		const height = Math.max(
 			anchorHeight,
 			maxHeight ? Math.min( rawHeight, maxHeight ) : rawHeight
@@ -89,6 +94,11 @@ function MorphShell( {
 			if ( openRef.current || shell.style.visibility === 'hidden' ) {
 				return;
 			}
+			clearEffects( [
+				shell,
+				...( header ? [ header ] : [] ),
+				...items,
+			] );
 			onCollapsedRef.current();
 			requestAnimationFrame( () => {
 				if ( ! openRef.current ) {
@@ -104,15 +114,18 @@ function MorphShell( {
 				shell.style.width = `${ anchorWidth }px`;
 				shell.style.height = `${ anchorHeight }px`;
 				shell.style.borderRadius = `${ pillRadius }px`;
+				shell.style.transform = 'scale(0.95)';
 			}
 			if ( header && ( isHidden || isModeChange ) ) {
 				header.style.opacity = '0';
-				header.style.transform = 'translateY(6px)';
+				header.style.filter = 'blur(7px)';
+				header.style.transform = 'translateY(3px) scale(0.95)';
 			}
 			items.forEach( ( item ) => {
 				if ( isHidden || isModeChange || ! item.style.opacity ) {
 					item.style.opacity = '0';
-					item.style.transform = 'translateY(8px)';
+					item.style.filter = 'blur(7px)';
+					item.style.transform = 'translateY(3px) scale(0.95)';
 				}
 			} );
 			shell.style.visibility = 'visible';
@@ -124,48 +137,129 @@ function MorphShell( {
 				shell.style.width = `${ clampedWidth }px`;
 				shell.style.height = `${ height }px`;
 				shell.style.borderRadius = `${ radius }px`;
+				clearEffects( [ shell ] );
 				if ( header ) {
 					header.style.opacity = '1';
-					header.style.removeProperty( 'transform' );
+					clearEffects( [ header ] );
 				}
 				items.forEach( ( item ) => {
 					item.style.opacity = '1';
-					item.style.removeProperty( 'transform' );
 				} );
+				clearEffects( items );
 			} else {
+				shell.style.willChange =
+					'width, height, border-radius, transform';
+				if ( header ) {
+					header.style.willChange = 'filter, opacity, transform';
+				}
+				items.forEach( ( item ) => {
+					item.style.willChange = 'filter, opacity, transform';
+				} );
+				const geometrySpring = createSpring( {
+					bounce: 0.24,
+					duration: 420,
+				} );
+				const flexSpring = createSpring( {
+					bounce: 0.3,
+					duration: 450,
+				} );
+				const contentSpring = createSpring( {
+					bounce: 0.16,
+					duration: 310,
+				} );
+				const baseDelay = isHidden ? 80 : 40;
 				const nextAnimations: ReturnType< typeof animate >[] = [
 					animate( shell, {
 						width: clampedWidth,
 						borderRadius: radius,
-						duration: 185,
-						ease: 'out(3)',
+						ease: geometrySpring,
+					} ),
+					animate( shell, {
+						scale: 1,
+						ease: flexSpring,
+						onComplete: () => {
+							if ( openRef.current ) {
+								clearEffects( [ shell ] );
+							}
+						},
 					} ),
 				];
 				heightAnimRef.current = animate( shell, {
 					height,
-					duration: 185,
-					ease: 'out(3)',
+					ease: geometrySpring,
 				} );
 				if ( header ) {
+					const headerDelay = baseDelay + items.length * 12;
 					nextAnimations.push(
 						animate( header, {
 							opacity: 1,
-							y: 0,
-							delay: 75,
-							duration: 140,
+							filter: 'blur(0px)',
+							delay: headerDelay,
+							duration: 215,
 							ease: 'out(3)',
+							onComplete: () => {
+								if ( openRef.current ) {
+									header.style.removeProperty( 'filter' );
+									header.style.removeProperty(
+										'will-change'
+									);
+								}
+							},
+						} ),
+						animate( header, {
+							y: 0,
+							scale: 1,
+							delay: headerDelay,
+							ease: contentSpring,
+							onComplete: () => {
+								if ( openRef.current ) {
+									header.style.removeProperty( 'transform' );
+									header.style.removeProperty(
+										'will-change'
+									);
+								}
+							},
 						} )
 					);
 				}
 				if ( items.length ) {
+					const itemDelay = ( _item?: unknown, index = 0 ) =>
+						baseDelay + ( items.length - 1 - index ) * 12;
 					nextAnimations.push(
 						animate( items, {
 							opacity: 1,
-							y: 0,
-							delay: ( _item?: unknown, index = 0 ) =>
-								100 + index * 22,
-							duration: 150,
+							filter: 'blur(0px)',
+							delay: itemDelay,
+							duration: 215,
 							ease: 'out(3)',
+							onComplete: () => {
+								if ( openRef.current ) {
+									items.forEach( ( item ) => {
+										item.style.removeProperty( 'filter' );
+										item.style.removeProperty(
+											'will-change'
+										);
+									} );
+								}
+							},
+						} ),
+						animate( items, {
+							y: 0,
+							scale: 1,
+							delay: itemDelay,
+							ease: contentSpring,
+							onComplete: () => {
+								if ( openRef.current ) {
+									items.forEach( ( item ) => {
+										item.style.removeProperty(
+											'transform'
+										);
+										item.style.removeProperty(
+											'will-change'
+										);
+									} );
+								}
+							},
 						} )
 					);
 				}
@@ -177,35 +271,58 @@ function MorphShell( {
 			shell.style.pointerEvents = 'none';
 
 			if ( reducedMotion ) {
+				clearEffects( [
+					shell,
+					...( header ? [ header ] : [] ),
+					...items,
+				] );
 				if ( getComputedStyle( shell ).visibility !== 'hidden' ) {
 					onCollapsedRef.current();
 					shell.style.visibility = 'hidden';
 				}
 			} else if ( getComputedStyle( shell ).visibility === 'hidden' ) {
+				clearEffects( [
+					shell,
+					...( header ? [ header ] : [] ),
+					...items,
+				] );
 				shell.style.visibility = 'hidden';
 			} else {
+				shell.style.willChange =
+					'width, height, border-radius, transform';
+				if ( header ) {
+					header.style.willChange = 'filter, opacity, transform';
+				}
+				items.forEach( ( item ) => {
+					item.style.willChange = 'filter, opacity, transform';
+				} );
+				const closeSpring = createSpring( {
+					bounce: 0.14,
+					duration: 290,
+				} );
 				const nextAnimations: ReturnType< typeof animate >[] = [
 					animate( shell, {
 						width: anchorWidth,
 						borderRadius: pillRadius,
-						delay: 25,
-						duration: 170,
-						ease: 'out(3)',
+						scale: 1,
+						delay: 15,
+						ease: closeSpring,
 						onComplete: finishClose,
 					} ),
 				];
 				heightAnimRef.current = animate( shell, {
 					height: anchorHeight,
-					delay: 25,
-					duration: 170,
-					ease: 'out(3)',
+					delay: 15,
+					ease: closeSpring,
 				} );
 				if ( header ) {
 					nextAnimations.push(
 						animate( header, {
 							opacity: 0,
-							y: 6,
-							duration: 75,
+							filter: 'blur(7px)',
+							y: 2,
+							scale: 0.94,
+							duration: 115,
 							ease: 'out(2)',
 						} )
 					);
@@ -214,8 +331,10 @@ function MorphShell( {
 					nextAnimations.push(
 						animate( items, {
 							opacity: 0,
-							y: 6,
-							duration: 75,
+							filter: 'blur(7px)',
+							y: 2,
+							scale: 0.94,
+							duration: 115,
 							ease: 'out(2)',
 						} )
 					);
@@ -248,10 +367,7 @@ function MorphShell( {
 				return;
 			}
 			const anchorHeight = anchor.offsetHeight;
-			const rawHeight = Math.max(
-				content.offsetHeight,
-				content.scrollHeight
-			);
+			const rawHeight = content.offsetHeight;
 			const nextHeight = Math.max(
 				anchorHeight,
 				maxHeight ? Math.min( rawHeight, maxHeight ) : rawHeight
@@ -268,8 +384,10 @@ function MorphShell( {
 			} else {
 				heightAnimRef.current = animate( shell, {
 					height: nextHeight,
-					duration: 135,
-					ease: 'out(3)',
+					ease: createSpring( {
+						bounce: 0.16,
+						duration: 280,
+					} ),
 				} );
 			}
 		};

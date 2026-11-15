@@ -2,16 +2,27 @@
 	position: fixed;
 	left: 50%;
 	bottom: 24px;
-	z-index: 99990;
+	z-index: 100100;
 	color: var(--printah-text);
 	transform: translateX(-50%);
 }
 
 .root[data-open="true"] {
-	z-index: 100000;
+	z-index: 100200;
 }
 
 .cluster {
+	--printah-glint-x: 28%;
+	--printah-glint-y: 0%;
+	--printah-spring: linear(
+		0,
+		0.35 12%,
+		0.92 26%,
+		1.07 40%,
+		1.02 58%,
+		0.99 78%,
+		1
+	);
 	position: relative;
 	height: 46px;
 	contain: layout;
@@ -24,20 +35,82 @@
 	align-items: center;
 	gap: 2px;
 	height: 46px;
-	padding: 4px 5px;
-	border: 1px solid #3f3f46;
+	padding: 5px;
+	border: 0;
 	border-radius: 64px;
-	background: #1e1e1e;
-	box-shadow: 0 14px 38px rgb(0 0 0 / 30%);
+	background:
+		radial-gradient(
+			220px circle at var(--printah-glint-x) var(--printah-glint-y),
+			rgb(255 255 255 / 0.09) 0%,
+			rgb(255 255 255 / 0.02) 44%,
+			transparent 72%
+		),
+		linear-gradient(
+			180deg,
+			rgb(255 255 255 / 0.05) 0%,
+			rgb(255 255 255 / 0.01) 24%,
+			rgb(0 0 0 / 0.22) 100%
+		),
+		rgb(8 9 13 / 0.84);
+	box-shadow:
+		inset 0 1px 0 0 rgb(255 255 255 / 0.2),
+		inset 0 -1px 0 0 rgb(255 255 255 / 0.06),
+		inset 0 0 14px rgb(0 0 0 / 0.14),
+		0 14px 36px -10px rgb(0 0 0 / 0.26),
+		0 3px 10px -2px rgb(0 0 0 / 0.12);
+	-webkit-backdrop-filter: blur(28px) saturate(185%) contrast(110%)
+		brightness(0.86);
+	backdrop-filter: blur(28px) saturate(185%) contrast(110%) brightness(0.86);
 	overflow: clip;
 	contain: layout paint;
 }
 
+.pill[data-hidden="true"] {
+	opacity: 0;
+	pointer-events: none;
+	box-shadow: none;
+}
+
+.pill::after,
+.popupShell::after {
+	position: absolute;
+	inset: 0;
+	z-index: 3;
+	padding: 1px;
+	border-radius: inherit;
+	background: linear-gradient(
+		142deg,
+		rgb(255 255 255 / 0.36) 0%,
+		rgb(255 255 255 / 0.1) 20%,
+		rgb(255 255 255 / 0.03) 50%,
+		rgb(255 255 255 / 0.05) 78%,
+		rgb(255 255 255 / 0.22) 100%
+	);
+	-webkit-mask:
+		linear-gradient(#000 0 0) content-box,
+		linear-gradient(#000 0 0);
+	-webkit-mask-composite: xor;
+	mask:
+		linear-gradient(#000 0 0) content-box,
+		linear-gradient(#000 0 0);
+	mask-composite: exclude;
+	pointer-events: none;
+	content: "";
+}
+
 .pillCovered {
-	border-color: transparent;
 	background: transparent;
 	box-shadow: none;
+	-webkit-backdrop-filter: none;
+	backdrop-filter: none;
+}
+
+.pillCovered[data-active="true"] {
 	pointer-events: none;
+}
+
+.pillCovered::after {
+	opacity: 0;
 }
 
 .root button,
@@ -71,20 +144,41 @@
 	justify-content: center;
 	border: 0;
 	background: transparent;
-	color: #e4e4e7;
+	color: #f3f5fa;
 	text-decoration: none;
 	cursor: pointer;
+	transition:
+		background-color 160ms ease,
+		color 160ms ease,
+		box-shadow 160ms ease,
+		scale 240ms ease-out;
+	transition-timing-function: ease, ease, ease, var(--printah-spring);
 }
+
 .pill button:focus,
 .pill button:active,
 .pill a:focus,
 .pill a:active {
-	color: #e4e4e7;
+	color: #f3f5fa;
 }
+
 .pill button:hover,
 .pill a:hover {
-	background: #3f3f46;
+	background: linear-gradient(
+		180deg,
+		rgb(255 255 255 / 0.14) 0%,
+		rgb(255 255 255 / 0.06) 100%
+	);
+	box-shadow:
+		inset 0 1px 0 rgb(255 255 255 / 0.2),
+		inset 0 -1px 0 rgb(0 0 0 / 0.16),
+		0 2px 8px rgb(0 0 0 / 0.14);
 	color: #fff;
+}
+
+.pill button:active,
+.pill a:active {
+	scale: 0.9;
 }
 
 .pill .icon,
@@ -101,7 +195,6 @@
 }
 
 .pill .search,
-.pill .search:hover,
 .pill .search:focus,
 .pill .search:active {
 	min-width: 36px;
@@ -109,7 +202,31 @@
 	margin-left: 2px;
 	padding: 0 6px;
 	border-radius: 50%;
-	background: #2f2f2f !important;
+	background: linear-gradient(
+		180deg,
+		rgb(255 255 255 / 0.13) 0%,
+		rgb(255 255 255 / 0.05) 100%
+	);
+	box-shadow:
+		inset 0 1px 0 rgb(255 255 255 / 0.2),
+		inset 0 -1px 0 rgb(0 0 0 / 0.16),
+		0 2px 6px rgb(0 0 0 / 0.16);
+}
+
+.pill .search:hover {
+	min-width: 36px;
+	height: 36px;
+	margin-left: 2px;
+	padding: 0 6px;
+	border-radius: 50%;
+	background: linear-gradient(
+		180deg,
+		rgb(255 255 255 / 0.2) 0%,
+		rgb(255 255 255 / 0.09) 100%
+	);
+	box-shadow:
+		inset 0 1px 0 rgb(255 255 255 / 0.26),
+		0 3px 10px rgb(0 0 0 / 0.2);
 }
 
 .badge {
@@ -120,7 +237,10 @@
 	height: 15px;
 	padding: 0 3px;
 	border-radius: 99px;
-	background: #3858e9;
+	background: linear-gradient(180deg, #5c7aff 0%, #3858e9 100%);
+	box-shadow:
+		inset 0 1px 0 rgb(255 255 255 / 0.4),
+		0 2px 6px rgb(0 0 0 / 0.2);
 	color: #fff;
 	font-size: 10px;
 	line-height: 15px;
@@ -133,41 +253,66 @@
 	z-index: 1;
 	width: 190px;
 	height: 46px;
-	border: 1px solid #3f3f46;
+	border: 0;
 	border-radius: 64px;
-	background: #1e1e1e;
-	box-shadow: 0 15px 40px rgb(0 0 0 / 30%);
+	background:
+		radial-gradient(
+			320px circle at var(--printah-glint-x) var(--printah-glint-y),
+			rgb(255 255 255 / 0.08) 0%,
+			rgb(255 255 255 / 0.02) 44%,
+			transparent 70%
+		),
+		linear-gradient(
+			180deg,
+			rgb(255 255 255 / 0.045) 0%,
+			rgb(255 255 255 / 0.01) 20%,
+			rgb(0 0 0 / 0.24) 100%
+		),
+		rgb(8 9 13 / 0.84);
+	box-shadow:
+		inset 0 1px 0 0 rgb(255 255 255 / 0.2),
+		inset 0 -1px 0 0 rgb(255 255 255 / 0.06),
+		inset 0 0 18px rgb(0 0 0 / 0.16),
+		0 20px 50px -14px rgb(0 0 0 / 0.32),
+		0 6px 18px -4px rgb(0 0 0 / 0.16);
+	-webkit-backdrop-filter: blur(28px) saturate(185%) contrast(110%)
+		brightness(0.86);
+	backdrop-filter: blur(28px) saturate(185%) contrast(110%) brightness(0.86);
 	visibility: hidden;
 	pointer-events: none;
 	overflow: clip;
-	transform: translateX(-50%);
-	contain: layout style;
+	translate: -50% 0;
+	transform-origin: 50% 100%;
+	contain: layout style paint;
 }
 
 .popupContent {
 	position: absolute;
 	bottom: 0;
 	left: 50%;
+	z-index: 1;
 	width: var(--printah-popup-width, 190px);
 	transform: translateX(-50%);
-	contain: layout style;
+	contain: layout style paint;
 }
 
 .popupInner {
 	padding: 8px;
 }
+
 .popupHeader {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	min-height: 30px;
 	padding: 0 9px;
-	color: #a1a1aa;
+	color: #d8dae3;
 	font-size: 11px;
 	font-weight: 700;
 	letter-spacing: 0.08em;
 	text-transform: uppercase;
 }
+
 .popupHeader button {
 	display: inline-grid;
 	place-items: center;
@@ -177,13 +322,23 @@
 	border: 0;
 	border-radius: 7px;
 	background: transparent;
-	color: #a1a1aa;
+	color: #d8dae3;
 	cursor: pointer;
+	transition:
+		background-color 140ms ease,
+		color 140ms ease,
+		scale 200ms ease-out;
 }
+
 .popupHeader button:hover {
-	background: #3f3f46;
+	background: rgb(255 255 255 / 0.14);
 	color: #fff;
 }
+
+.popupHeader button:active {
+	scale: 0.9;
+}
+
 .popupInner .item,
 .popupInner .item:focus,
 .popupInner .item:active {
@@ -193,30 +348,91 @@
 	min-height: 38px;
 	padding: 0 10px;
 	border-radius: 10px;
-	color: #f4f4f5;
+	color: #fff;
 	text-decoration: none;
 	font-size: 13px;
+	transition:
+		background-color 140ms ease,
+		color 140ms ease,
+		box-shadow 140ms ease,
+		scale 220ms ease-out;
+	transition-timing-function: ease, ease, ease, var(--printah-spring);
 }
+
 .popupInner .item:hover,
 .popupInner .item:focus-visible {
-	background: #3f3f46;
+	background: linear-gradient(
+		180deg,
+		rgb(255 255 255 / 0.11) 0%,
+		rgb(255 255 255 / 0.055) 100%
+	);
+	box-shadow:
+		inset 0 1px 0 rgb(255 255 255 / 0.14),
+		0 2px 8px -2px rgb(0 0 0 / 0.14);
 	color: #fff;
 }
+
+.popupInner .item:active {
+	scale: 0.975;
+}
+
 .item svg {
 	flex: none;
-	color: #a1a1aa;
+	color: #d8dae3;
 }
 
 .root button:focus-visible,
 .root a:focus-visible {
 	outline: none;
-	box-shadow: inset 0 0 0 1.5px #7b90ff;
+	box-shadow: inset 0 0 0 1.5px #8ea0ff;
+}
+
+@supports not (
+	(backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))
+) {
+	.pill,
+	.popupShell {
+		background: #0c0d12;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.pill button,
+	.pill a,
+	.popupHeader button,
+	.popupInner .item {
+		transition: none;
+	}
+
+	.pill button:active,
+	.pill a:active,
+	.popupHeader button:active,
+	.popupInner .item:active {
+		scale: none;
+	}
+}
+
+@media (forced-colors: active) {
+	.pill,
+	.popupShell {
+		border: 1px solid CanvasText;
+		background: Canvas;
+		color: CanvasText;
+		-webkit-backdrop-filter: none;
+		backdrop-filter: none;
+	}
+
+	.pill::after,
+	.popupShell::after {
+		display: none;
+	}
 }
 
 @media (max-width: 640px) {
 	.root {
 		bottom: 12px;
 	}
+
 	.icon,
 	.search {
 		min-width: 34px;

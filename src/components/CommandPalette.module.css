@@ -11,14 +11,24 @@
 }
 
 .printah-app {
-	--printah-ink: #0c0c0c;
-	--printah-surface: #1e1e1e;
-	--printah-raised: #2f2f2f;
-	--printah-line: #2f2f2f;
+	--printah-ink: #08090d;
+	--printah-surface: rgb(255 255 255 / 0.05);
+	--printah-raised: rgb(255 255 255 / 0.1);
+	--printah-line: rgb(255 255 255 / 0.09);
 	--printah-text: #fff;
-	--printah-muted: #ccc;
-	--printah-accent: #7b90ff;
-	--printah-accent-strong: var(--printah-muted);
+	--printah-muted: #b4b8c4;
+	--printah-accent: #2563eb;
+	--printah-accent-strong: rgb(255 255 255 / 0.72);
+	--printah-spring: linear(
+		0,
+		0.35 12%,
+		0.92 26%,
+		1.07 40%,
+		1.02 58%,
+		0.99 78%,
+		1
+	);
+	color-scheme: dark;
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
@@ -59,9 +69,10 @@
 	min-width: 20px;
 	height: 20px;
 	padding: 0 5px;
-	border: 1px solid #3f3f46;
-	border-radius: 5px;
-	background: var(--printah-raised);
+	border: 1px solid rgb(255 255 255 / 0.14);
+	border-radius: 6px;
+	background: rgb(255 255 255 / 0.08);
+	box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.12);
 	color: var(--printah-muted);
 	font:
 		10px/1 ui-monospace,
@@ -146,6 +157,7 @@
 	display: flex;
 	flex-direction: column;
 	width: 100%;
+	overflow: hidden;
 	color: var(--printah-text);
 }
 
@@ -280,7 +292,7 @@
 	overscroll-behavior: contain;
 	scroll-padding-block: var(--printah-fade-size);
 	scrollbar-width: thin;
-	scrollbar-color: #3f3f46 transparent;
+	scrollbar-color: rgb(255 255 255 / 0.22) transparent;
 	-webkit-mask-image: linear-gradient(
 		to bottom,
 		transparent 0,
@@ -377,22 +389,40 @@
 	align-items: center;
 	gap: 4px;
 	width: 100%;
-	border-radius: 8px;
+	border-radius: 12px;
+	transition:
+		background-color 140ms ease,
+		box-shadow 140ms ease,
+		scale 220ms ease-out;
+	transition-timing-function: ease, ease, var(--printah-spring);
 }
 
 .printah-result-row:hover,
 .printah-result-row.is-selected {
-	background: var(--printah-raised);
+	background: linear-gradient(
+		180deg,
+		rgb(255 255 255 / 0.11) 0%,
+		rgb(255 255 255 / 0.055) 100%
+	);
+	box-shadow:
+		inset 0 1px 0 rgb(255 255 255 / 0.14),
+		inset 0 0 0 1px rgb(255 255 255 / 0.06),
+		0 4px 12px -4px rgb(0 0 0 / 0.16);
+}
+
+.printah-result-row:active {
+	scale: 0.99;
 }
 
 .printah-result-row.is-selected::before {
 	position: absolute;
-	top: 8px;
-	bottom: 8px;
-	left: 0;
-	width: 3px;
-	border-radius: 0 3px 3px 0;
-	background: var(--printah-accent-strong);
+	top: 9px;
+	bottom: 9px;
+	left: 2px;
+	width: 2.5px;
+	border-radius: 99px;
+	background: var(--printah-accent);
+	box-shadow: 0 0 10px rgb(142 160 255 / 0.55);
 	content: "";
 }
 
@@ -406,7 +436,7 @@
 	margin: 0;
 	padding: 6px 10px;
 	border: 0;
-	border-radius: 8px;
+	border-radius: 12px;
 	background: transparent;
 	box-shadow: none;
 	color: var(--printah-text);
@@ -434,10 +464,16 @@
 	display: grid;
 	flex: none;
 	place-items: center;
-	width: 24px;
-	height: 24px;
-	border-radius: 6px;
-	background: #28282b;
+	width: 26px;
+	height: 26px;
+	border: 1px solid rgb(255 255 255 / 0.09);
+	border-radius: 8px;
+	background: linear-gradient(
+		180deg,
+		rgb(255 255 255 / 0.1) 0%,
+		rgb(255 255 255 / 0.04) 100%
+	);
+	box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.16);
 	color: var(--printah-text);
 }
 
@@ -539,6 +575,10 @@
 	font-size: 12px;
 }
 
+.printah-palette[data-compact="true"] .printah-searchbar {
+	border-top-color: transparent;
+}
+
 .printah-searchbar {
 	position: relative;
 	z-index: 1;
@@ -549,6 +589,13 @@
 	min-height: 52px;
 	padding: 0 18px;
 	border-top: 1px solid var(--printah-line);
+}
+
+.printah-searchbar__hint {
+	flex: none;
+	color: var(--printah-muted);
+	font-size: 11.5px;
+	white-space: nowrap;
 }
 
 .printah-searchbar > svg {
@@ -581,6 +628,31 @@
 
 .printah-searchbar input::-webkit-search-cancel-button {
 	-webkit-appearance: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.printah-result-row,
+	.printah-result-action-btn,
+	.printah-result-action-btn svg,
+	.printah-back,
+	.printah-back svg {
+		transition: none;
+	}
+
+	.printah-result-row:active {
+		scale: none;
+	}
+}
+
+@media (forced-colors: active) {
+	.printah-result-row.is-selected {
+		outline: 2px solid Highlight;
+		outline-offset: -2px;
+	}
+
+	.printah-result-row.is-selected::before {
+		background: Highlight;
+	}
 }
 
 @media (max-width: 640px) {

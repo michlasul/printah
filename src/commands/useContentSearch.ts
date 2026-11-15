@@ -26,7 +26,7 @@ export function useContentSearch(
 	const shouldSearch =
 		enabled &&
 		Boolean( searchUrl && restNonce ) &&
-		Array.from( search ).length >= 2;
+		Array.from( search ).length >= 3;
 
 	useEffect( () => {
 		if ( ! shouldSearch || ! searchUrl || ! restNonce ) {
