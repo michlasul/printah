@@ -1,0 +1,42 @@
+# Dependencies (installed via npm / Composer)
+/node_modules/
+/vendor/
+/wp-content/
+
+# Compiled assets & release archives
+/build/
+*.zip
+*.tar.gz
+
+# Environment & local overrides
+.env
+.env.*
+!.env.example
+.wp-env.override.json
+
+# Logs, caches & test artifacts
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.eslintcache
+.stylelintcache
+.phpcs-cache
+.phpunit.result.cache
+coverage/
+*.tsbuildinfo
+
+# OS & editor files
+.DS_Store
+Thumbs.db
+.zed/
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+docs/
+GEMINI.md
+CLAUDE.md
+AGENTS.md

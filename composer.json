@@ -1,0 +1,21 @@
+{
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "composer/installers": true
+        }
+    },
+    "require-dev": {
+        "wp-coding-standards/wpcs": "^3.4",
+        "php-stubs/wordpress-stubs": "^7.1",
+        "php-stubs/woocommerce-stubs": "^11.3",
+        "wpackagist-plugin/elementor": "^4.4"
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://wpackagist.org",
+            "only": ["wpackagist-plugin/*"]
+        }
+    ]
+}

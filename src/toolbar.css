@@ -1,0 +1,3 @@
+html.printah-toolbar-ready { padding-top: 0 !important; }
+html.printah-toolbar-ready #wpadminbar { display: none !important; }
+@media screen and (max-width: 782px) { html.printah-toolbar-ready #wpbody { padding-top: 0; } }

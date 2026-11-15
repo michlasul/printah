@@ -1,0 +1,15 @@
+.printah-settings { max-width: 1040px; color: #1d2327; }
+.printah-settings__hero { padding: 36px 0 26px; }
+.printah-settings__eyebrow { color: #3858e9; font-size: 11px; font-weight: 700; letter-spacing: .14em; }
+.printah-settings__hero h1 { margin: 10px 0 8px; font-size: clamp(28px, 4vw, 42px); line-height: 1.12; font-weight: 650; }
+.printah-settings__hero p { margin: 0; color: #50575e; font-size: 15px; }
+.printah-settings__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.printah-settings__card { padding: 24px; border: 1px solid #dcdcde; border-radius: 14px; background: #fff; box-shadow: 0 4px 14px rgb(0 0 0 / 3%); }
+.printah-settings__card h2 { margin: 0 0 6px; font-size: 19px; }
+.printah-settings__card p { margin: 0 0 20px; color: #646970; }
+.printah-settings__card > label:not(.printah-settings__toggle) { display: block; margin: 18px 0 7px; font-weight: 600; }
+.printah-settings__card select { width: 100%; max-width: none; min-height: 38px; }
+.printah-settings__toggle { display: flex; align-items: center; gap: 9px; margin-top: 24px; font-weight: 600; }
+.printah-settings__toggle input { margin: 0; }
+.printah-settings__card .description { margin: 12px 0 0; font-size: 12px; }
+@media (max-width: 782px) { .printah-settings__grid { grid-template-columns: 1fr; } .printah-settings__card { padding: 18px; } }
