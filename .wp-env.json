@@ -1,12 +1,10 @@
 {
-  "plugins": [
-    "https://downloads.wordpress.org/plugin/elementor.zip",
-    "https://downloads.wordpress.org/plugin/woocommerce.zip",
-    "."
-  ],
-  "themes": [
-    "https://downloads.wordpress.org/theme/hello-elementor.zip"
-  ],
-  "testsEnvironment": false,
-  "port": 8880
+	"plugins": [
+		"https://downloads.wordpress.org/plugin/elementor.zip",
+		"https://downloads.wordpress.org/plugin/woocommerce.zip",
+		"."
+	],
+	"themes": [ "https://downloads.wordpress.org/theme/hello-elementor.zip" ],
+	"testsEnvironment": false,
+	"port": 8880
 }
