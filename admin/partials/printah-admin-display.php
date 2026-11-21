@@ -58,8 +58,6 @@ $printah_shortcuts = array(
 
 	<hr class="wp-header-end" />
 
-	<?php settings_errors( Printah_Settings::OPTION ); ?>
-
 	<div id="printah-settings-feedback" class="notice notice-error inline printah-inline-notice" role="status" aria-live="polite" hidden></div>
 
 	<form method="post" action="options.php" id="printah-settings-form" novalidate>

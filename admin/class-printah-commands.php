@@ -635,7 +635,7 @@ final class Printah_Commands {
 					'label'       => __( 'Printah Settings', 'printah' ),
 					'description' => __( 'Configure Printah shortcuts, floating pill, and modules', 'printah' ),
 					'keywords'    => array( 'printah', 'command palette', 'shortcuts', 'floating pill', 'settings', 'preferences' ),
-					'url'         => admin_url( 'admin.php?page=printah' ),
+					'url'         => admin_url( 'options-general.php?page=printah' ),
 					'category'    => 'pengaturan',
 					'capability'  => 'manage_options',
 				),

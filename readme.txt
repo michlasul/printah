@@ -31,7 +31,7 @@ Press **Cmd + K** (Mac) or **Ctrl + K** (Windows/Linux) from anywhere in WP Admi
 
 1. Upload the `printah` folder to `/wp-content/plugins/` or install the plugin ZIP through **Plugins > Add New** in your WordPress dashboard.
 2. Activate **Printah** from the **Plugins** menu.
-3. Open **Printah** from your WordPress admin sidebar (or press `Cmd + K` / `Ctrl + K` and search for **Printah Settings**) to customize your shortcuts, floating pill, and integrations.
+3. Open **Settings > Printah** in your WordPress dashboard (or press `Cmd + K` / `Ctrl + K` and search for **Printah Settings**) to customize your shortcuts, floating pill, and integrations.
 
 == Frequently Asked Questions ==
 
@@ -39,7 +39,7 @@ Press **Cmd + K** (Mac) or **Ctrl + K** (Windows/Linux) from anywhere in WP Admi
 Press `Cmd + K` on macOS or `Ctrl + K` on Windows and Linux anywhere inside WP Admin, the Block Editor, the Site Editor, or the Elementor editor. You can also click the search icon on the floating pill at the bottom center of the screen.
 
 = Can I change the keyboard shortcut? =
-Yes. Go to **Printah** in your WordPress sidebar and choose from `Cmd/Ctrl + K`, `Cmd/Ctrl + J`, `Cmd/Ctrl + Shift + K`, or `Cmd/Ctrl + Shift + J`.
+Yes. Go to **Settings > Printah** in your WordPress dashboard and choose from `Cmd/Ctrl + K`, `Cmd/Ctrl + J`, `Cmd/Ctrl + Shift + K`, or `Cmd/Ctrl + Shift + J`.
 
 = What happened to the built-in WordPress Command Palette? =
 Printah disables the default WordPress Command Palette shortcut by default so `Cmd/Ctrl + K` opens Printah without conflicts. If you want to use both palettes side by side, turn on **WordPress Command Palette** in **Printah** settings and give each palette a different shortcut.

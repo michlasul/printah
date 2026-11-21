@@ -74,7 +74,7 @@ final class Printah_Admin {
 	 * @param string $hook_suffix Current admin page hook.
 	 */
 	public function enqueue_styles( $hook_suffix ) {
-		if ( 'toplevel_page_printah' !== $hook_suffix ) {
+		if ( 'settings_page_printah' !== $hook_suffix ) {
 			return;
 		}
 
@@ -286,17 +286,15 @@ final class Printah_Admin {
 	}
 
 	/**
-	 * Add printah admin menu.
+	 * Add printah admin menu under Settings.
 	 */
 	public function printah_admin_menu() {
-		add_menu_page(
+		add_options_page(
 			'Printah',
 			'Printah',
 			'manage_options',
 			'printah',
-			array( $this, 'printah_admin_page' ),
-			plugins_url( 'admin/img/printah-command-icon.svg', dirname( __DIR__ ) . '/printah.php' ),
-			6
+			array( $this, 'printah_admin_page' )
 		);
 	}
 
